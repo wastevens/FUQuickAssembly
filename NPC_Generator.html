@@ -1,0 +1,484 @@
+<html>
+<head>
+	<title>Fabula Ultima Quick Antagonist Assembler</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	
+	<script src="scripts/NPC.js"></script>
+	<script src="scripts/Display.js"></script>
+	<script src="scripts/Ranks.js"></script>
+	<script src="scripts/Customizations.js"></script>
+	<script src="scripts/Beast.js"></script>
+	<script src="scripts/Construct.js"></script>
+	<script src="scripts/Brute.js"></script>
+	<script src="scripts/Hunter.js"></script>
+</head>
+<body>
+	<form>
+		<div class="container">
+			<div id="selections" class="row row-cols-4 text-center">
+				<div class="col">
+					<select id="rank" class="form-select" aria-label="Rank selection">
+					</select>
+				</div>					
+				<div class="col">
+					<select id="species" class="form-select" aria-label="Species selection">
+					</select>
+				</div>			
+				<div class="col">
+					<select id="role" class="form-select" aria-label="Role selection">
+					</select>
+				</div>
+				<div class="col">
+					<select id="level" class="form-select" aria-label="Level selection">
+					</select>
+				</div>
+			</div>
+			<div id="attributes" class="row text-center">
+				<div class="col-7">
+					<div class="container">
+						<div class="row row-cols-4">
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col">DEX</div>
+										<div id="dex" class="col"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col">INS</div>
+										<div id="ins" class="col"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col">MIG</div>
+										<div id="mig" class="col"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col">WLP</div>
+										<div id="wlp" class="col"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col"></div>
+				
+				<div class="col-4">
+					<div class="container">
+						<div class="row">
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col-1">HP</div>
+										<div id="hp" class="col"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col-1">MP</div>
+										<div id="mp" class="col"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="defense" class="row text-center">
+				<div class="col-3">
+					<div class="container">
+						<div class="row">
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0">DEF</div>
+										<div id="def" class="col"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0">M.DEF</div>
+										<div id="mdef" class="col"></div>
+									</div>
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>
+				<div class="col-9">
+					<div class="container">
+						<div class="row">
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Pp.svg" style="height:24px;"></div>
+										<div class="col" id="physical"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Aa.svg" style="height:24px;"></div>
+										<div class="col" id="air"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Bb.svg" style="height:24px;"></div>
+										<div class="col" id="bolt"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Dd.svg" style="height:24px;"></div>
+										<div class="col" id="dark"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Ee.svg" style="height:24px;"></div>
+										<div class="col" id="earth"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Ff.svg" style="height:24px;"></div>
+										<div class="col" id="fire"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Ii.svg" style="height:24px;"></div>
+										<div class="col" id="ice"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Ll.svg" style="height:24px;"></div>
+										<div class="col" id="light"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col border">
+								<div class="container">
+									<div class="row">
+										<div class="col p-0"><img src="fabuicons/Tt.svg" style="height:24px;"></div>
+										<div class="col" id="poison" ></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="affinityNote" class="row">
+							<div id="roleAffinity" class="col border">
+							</div>
+							<div id="speciesAffinity" class="col border">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col">
+					<div id="attacks" class="container border">
+						<div class="row">
+							<div class="col">
+								<h4>Basic Attacks</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div id="spells" class="container border">
+						<div class="row">
+							<div class="col">
+								<h4>Spells</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div id="spellNotes" class="col">
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div id="customizations" class="container border">
+						<div class="row">
+							<div class="col">
+								<h4>Customizations</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div id="roleSkills" class="container border">
+						<div class="row">
+							<div class="col">
+								<h4>Role Skills</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div id="speciesSkills" class="container border">
+						<div class="row">
+							<div class="col">
+								<h4>Species Skills</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div id="speciesSkillNotes" class="col">
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script>
+
+const modifications = new Modifications();
+	
+const npc = new NPC();
+
+class RankNoOp {
+	constructor() {}
+	apply() {
+	}
+}
+
+const Rank = {
+	NOOP: {
+		name: "Select your Rank",
+		apply: new RankNoOp()
+	},
+	SOLDIER: {
+		name: "Soldier",
+		type: new Soldier()
+	},
+	ELITE: {
+		name: "Elite",
+		type: new Elite()
+	},
+	CHAMPION_2: {
+		name: "Champion (2)",
+		type: new Champion(2)
+	},
+	CHAMPION_3: {
+		name: "Champion (3)",
+		type: new Champion(3)
+	},
+	CHAMPION_4: {
+		name: "Champion (4)",
+		type: new Champion(4)
+	},
+	CHAMPION_5: {
+		name: "Champion (5)",
+		type: new Champion(5)
+	}
+}
+
+class SpeciesNoOp {
+	constructor() {}
+	apply() {
+		npc.resetSpecies();
+	}
+}
+
+const Species = {
+	NOOP: {
+		name: "Select your Species",
+		type: new SpeciesNoOp()
+	},
+	BEAST: {
+		name: "Beast",
+		type: new Beast()
+	},
+	CONSTRUCT: {
+		name: "Construct",
+		type: new Construct()
+	}
+}
+
+class RoleNoOp {
+	constructor() {}
+	apply() {
+		npc.resetRole();
+		npc.role = this;
+	}
+	customizations() {
+		return new Object();
+	}
+	skills() {
+		return new Object();
+	}
+}
+
+const Role = {
+	NOOP: {
+		name: "Select your Role",
+		type: new RoleNoOp()
+	},
+	BRUTE: {
+		name: "Brute",
+		type: new Brute()
+	},
+	HUNTER: {
+		name: "Hunter",
+		type: new Hunter()
+	}
+}
+
+const Level = {
+	NOOP: {
+		name: "Select your Level",
+		type: 0
+	},
+	LEVEL_5: {
+		name: "Level 5",
+		type: 5
+	},
+	LEVEL_10: {
+		name: "Level 10",
+		type: 10
+	},
+	LEVEL_20: {
+		name: "Level 20",
+		type: 20
+	},
+	LEVEL_30: {
+		name: "Level 30",
+		type: 30
+	},
+	LEVEL_40: {
+		name: "Level 40",
+		type: 40
+	},
+	LEVEL_50: {
+		name: "Level 50",
+		type: 50
+	},
+	LEVEL_60: {
+		name: "Level 60",
+		type: 60
+	}
+}
+
+function updateRank() {
+	npc.maxRoleSkills = 0;
+	npc.roleSkills = [];
+	modifications.resetRoleSkills();
+	$(".roleSkill").remove();
+	
+	npc.maxCustomizations = 0;
+	npc.customizations = [];
+	modifications.resetCustomizations();
+	$(".modification").remove();
+		
+	npc.rank.apply();
+	
+	update();
+}
+
+function updateLevel() {
+	modifications.roleSkills = [];
+	modifications.level = [];
+	
+	if(npc.role) {
+		npc.role.levelUp(npc.level);
+	}
+	
+	update();
+}
+
+function update() {
+	npc.apply(modifications);
+	updateDisplay();
+}
+
+$(document).on('change','select', function(){
+	var prev = $(this).data('prev');
+	var current = $(this).val();
+	$(this).data('prev', current);
+});
+
+$(document).ready(function() {
+
+	Object.keys(Rank).forEach(r => $("#rank").append($("<option>").attr("value", r).append(Rank[r].name)));
+	$("#rank").val("NOOP").change();
+	
+	Object.keys(Species).forEach(r => $("#species").append($("<option>").attr("value", r).append(Species[r].name)));
+	$("#species").val("NOOP").change();
+	
+	Object.keys(Role).forEach(r => $("#role").append($("<option>").attr("value", r).append(Role[r].name)));
+	$("#role").val("NOOP").change();
+	
+	Object.keys(Level).forEach(r => $("#level").append($("<option>").attr("value", r).append(Level[r].name)));
+	$("#level").val("NOOP").change();
+	
+	$('#rank').on('change', function (e) {
+		const current = $(this).val();
+		npc.rank = Rank[current].type;
+		updateRank();
+	});
+	$('#species').on('change', function (e) {
+		const current = $(this).val();
+		Species[current].type.apply();
+		update();
+	});
+	$('#role').on('change', function (e) {
+		const current = $(this).val();
+		Role[current].type.apply();
+		npc.levelUp();
+		update();
+	});
+	
+	$('#level').on('change', function (e) {
+		const current = $(this).val();
+		npc.level = Level[current].type
+		npc.levelUp();
+		update();
+	});
+});
+	</script>
+</body>
+</html>

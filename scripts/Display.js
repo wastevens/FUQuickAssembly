@@ -33,16 +33,29 @@ function updateDisplay() {
 	$("#maxSpeciesSkills").text(npc.maxSpeciesSkills);
 	$("#speciesSkillNotes").text(npc.speciesSkillNote);
 	
-	/**
+	
 	if(npc.role) {
-		for(let i=0;i<npc.maxCustomizations;i++) {
-			addSelection(i, npc.role.customizations(), "customization", "customizations");
+		let currentCount = $("div.customization").length;
+		if(currentCount > npc.maxCustomizations) {
+			$("div.customization").remove();
+			npc.customizations = [];
+			currentCount = 0;
 		}
-		for(let i=0;i<npc.maxRoleSkills;i++) {
-			addSelection(i, npc.role.skills(), "roleSkill", "roleSkills");
+		for(let i=currentCount;i<npc.maxCustomizations;i++) {
+			addSelection(npc.role.customizations(), "customization", "customizations");
+		}
+		
+		currentCount = $("div.roleSkill").length;
+		if(currentCount > npc.maxRoleSkills) {
+			$("div.roleSkill").remove();
+			npc.roleSkills = [];
+			currentCount = 0;
+		}
+		for(let i=currentCount;i<npc.maxRoleSkills;i++) {
+			addSelection(npc.role.skills(), "roleSkill", "roleSkills");
 		}
 	}
-	**/
+	
 	if(npc.species) {
 		let currentCount = $("div.speciesSkill").length;
 		if(currentCount > npc.maxSpeciesSkills) {
@@ -53,6 +66,18 @@ function updateDisplay() {
 		for(let i=currentCount;i<npc.maxSpeciesSkills;i++) {
 			addSelection(npc.species.skills(), "speciesSkill", "speciesSkills");
 		}
+	}
+}
+
+function updateSelections(source, rowClass, containerId) {
+	let currentCount = $("div." + rowClass).length;
+	if(currentCount > npc.maxSpeciesSkills) {
+		$("div." + rowClass).remove();
+		npc.speciesSkills = [];
+		currentCount = 0;
+	}
+	for(let i=currentCount;i<npc.maxSpeciesSkills;i++) {
+		addSelection(source, rowClass, containerId);
 	}
 }
 

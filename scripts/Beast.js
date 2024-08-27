@@ -6,7 +6,7 @@ const BeastSkills = {
 	ADD_HP: {
 		name: "Add 10 HP",
 		apply: function() { 
-			npc.hp += 10; 
+			npc.bonusHp += 10; 
 		},
 	},
 	INCREASE_DEFENSE: {

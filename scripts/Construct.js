@@ -1,13 +1,12 @@
 const ConstructSkills = {
 	NOOP: {
 		name: "Select a Skill",
-		apply: function() {},
-		undo: function() {}
+		apply: function() {}
 	},
 	ADD_HP: {
 		name: "Add 10 HP",
 		apply: function() { 
-			npc.hp += 10; 
+			npc.bonusHp += 10; 
 		},
 	},
 	INCREASE_DEFENSE: {

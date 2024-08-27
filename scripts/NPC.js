@@ -11,7 +11,9 @@ class NPC {
 		this.wlp = null;
 	
 		this.hp = 0;
+		this.bonusHp = 0
 		this.mp = 0;
+		this.bonusMp = 0
 	
 		this.def = 0;
 		this.mdef = 0;
@@ -46,37 +48,41 @@ class NPC {
 	
 	update() {
 		if(this.rank && this.species && this.role && this.level) {
-			this.species.apply();
 			const source = this;
+			
+			this.species.apply();
 			$("select.speciesSkill").each(function(i, s) {
 				let value = $(s).val();
 				let skill = source.species.skills()[value];
 				source.speciesSkills.push(value);
 				skill.apply();
 			});
-			/**
+			
 			this.role.apply();
+			this.role.levelUp(this.level);
+			
 			$("select.customization").each(function(i, s) {
-				let customization = this.role.customizations()[$(s).val()];
-				this.customizations.push(skill);
+				let value = $(s).val();
+				let customization = source.role.customizations()[value];
+				source.customizations.push(customization);
 				customization.apply();
 			});
 			$("select.roleSkill").each(function(i, s) {
-				let skill = this.role.skills()[$(s).val()];
-				this.roleSkills.push(skill);
+				let value = $(s).val();
+				let skill = source.role.skills()[value];
+				source.roleSkills.push(value);
 				skill.apply();
 			});
-			this.role.levelUp(this.level);
 			
 			this.deriveHPandMP();
-			
+			/**
 			this.rank.apply();
 			**/
 		}
 	}
 		
 	deriveHPandMP() {
-		this.hp += (this.mig ? (5 * this.mig) : 0) + (this.level ? (2 * this.level) : 0);
-		this.mp += (this.wlp ? (5 * this.wlp) : 0) + (this.level ? (1 * this.level) : 0);
+		this.hp += (this.mig ? (5 * this.mig) : 0) + (this.level ? (2 * this.level) : 0) + this.bonusHp;
+		this.mp += (this.wlp ? (5 * this.wlp) : 0) + (this.level ? (1 * this.level) : 0) + this.bonusMp;
 	}
 }

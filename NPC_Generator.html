@@ -6,13 +6,22 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	
 	<script src="scripts/NPC.js"></script>
+	<script src="scripts/Attack.js"></script>
 	<script src="scripts/Display.js"></script>
+	
+	<script src="scripts/NoOp.js"></script>
+	
+	<script src="scripts/Levels.js"></script>
 	<script src="scripts/Ranks.js"></script>
-	<script src="scripts/Customizations.js"></script>
+	
 	<script src="scripts/Beast.js"></script>
 	<script src="scripts/Construct.js"></script>
+	<script src="scripts/Species.js"></script>
+	
 	<script src="scripts/Brute.js"></script>
 	<script src="scripts/Hunter.js"></script>
+	<script src="scripts/Role.js"></script>
+	
 </head>
 <body>
 	<form>
@@ -224,8 +233,11 @@
 				<div class="col">
 					<div id="spells" class="container border">
 						<div class="row">
+							<div class="col-2">
+								<h4>Spells</h4>
+							</div>
 							<div class="col">
-								<h4>Spells</h3>
+								<h4>(max <span id="maxSpells">0</span>)</h4>
 							</div>
 						</div>
 						<div class="row">
@@ -239,8 +251,11 @@
 				<div class="col">
 					<div id="customizations" class="container border">
 						<div class="row">
+							<div class="col-2">
+								<h4>Customizations</h4>
+							</div>
 							<div class="col">
-								<h4>Customizations</h3>
+								<h4>(max <span id="maxCustomizations">0</span>)</h4>
 							</div>
 						</div>
 					</div>
@@ -250,8 +265,11 @@
 				<div class="col">
 					<div id="roleSkills" class="container border">
 						<div class="row">
+							<div class="col-2">
+								<h4>Role Skills</h4>
+							</div>
 							<div class="col">
-								<h4>Role Skills</h3>
+								<h4>(max <span id="maxRoleSkills">0</span>)</h4>
 							</div>
 						</div>
 					</div>
@@ -261,8 +279,11 @@
 				<div class="col">
 					<div id="speciesSkills" class="container border">
 						<div class="row">
+							<div class="col-2">
+								<h4>Species Skills</h4>
+							</div>
 							<div class="col">
-								<h4>Species Skills</h3>
+								<h4>(max <span id="maxSpeciesSkills">0</span>)</h4>
 							</div>
 						</div>
 						<div class="row">
@@ -275,174 +296,28 @@
 		</div>
 	</form>
 	<script>
-
-const modifications = new Modifications();
 	
-const npc = new NPC();
+let npc = new NPC();
 
-class RankNoOp {
-	constructor() {}
-	apply() {
-	}
-}
-
-const Rank = {
-	NOOP: {
-		name: "Select your Rank",
-		apply: new RankNoOp()
-	},
-	SOLDIER: {
-		name: "Soldier",
-		type: new Soldier()
-	},
-	ELITE: {
-		name: "Elite",
-		type: new Elite()
-	},
-	CHAMPION_2: {
-		name: "Champion (2)",
-		type: new Champion(2)
-	},
-	CHAMPION_3: {
-		name: "Champion (3)",
-		type: new Champion(3)
-	},
-	CHAMPION_4: {
-		name: "Champion (4)",
-		type: new Champion(4)
-	},
-	CHAMPION_5: {
-		name: "Champion (5)",
-		type: new Champion(5)
-	}
-}
-
-class SpeciesNoOp {
-	constructor() {}
-	apply() {
-		npc.resetSpecies();
-	}
-}
-
-const Species = {
-	NOOP: {
-		name: "Select your Species",
-		type: new SpeciesNoOp()
-	},
-	BEAST: {
-		name: "Beast",
-		type: new Beast()
-	},
-	CONSTRUCT: {
-		name: "Construct",
-		type: new Construct()
-	}
-}
-
-class RoleNoOp {
-	constructor() {}
-	apply() {
-		npc.resetRole();
-		npc.role = this;
-	}
-	customizations() {
-		return new Object();
-	}
-	skills() {
-		return new Object();
-	}
-}
-
-const Role = {
-	NOOP: {
-		name: "Select your Role",
-		type: new RoleNoOp()
-	},
-	BRUTE: {
-		name: "Brute",
-		type: new Brute()
-	},
-	HUNTER: {
-		name: "Hunter",
-		type: new Hunter()
-	}
-}
-
-const Level = {
-	NOOP: {
-		name: "Select your Level",
-		type: 0
-	},
-	LEVEL_5: {
-		name: "Level 5",
-		type: 5
-	},
-	LEVEL_10: {
-		name: "Level 10",
-		type: 10
-	},
-	LEVEL_20: {
-		name: "Level 20",
-		type: 20
-	},
-	LEVEL_30: {
-		name: "Level 30",
-		type: 30
-	},
-	LEVEL_40: {
-		name: "Level 40",
-		type: 40
-	},
-	LEVEL_50: {
-		name: "Level 50",
-		type: 50
-	},
-	LEVEL_60: {
-		name: "Level 60",
-		type: 60
-	}
-}
-
-function updateRank() {
-	npc.maxRoleSkills = 0;
-	npc.roleSkills = [];
-	modifications.resetRoleSkills();
+function clear() {
+	$(".speciesSkill").remove();
+	$(".customization").remove();
 	$(".roleSkill").remove();
-	
-	npc.maxCustomizations = 0;
-	npc.customizations = [];
-	modifications.resetCustomizations();
-	$(".modification").remove();
-		
-	npc.rank.apply();
-	
-	update();
-}
-
-function updateLevel() {
-	modifications.roleSkills = [];
-	modifications.level = [];
-	
-	if(npc.role) {
-		npc.role.levelUp(npc.level);
-	}
-	
-	update();
+	$(".attack").remove();
 }
 
 function update() {
-	npc.apply(modifications);
+	npc = new NPC();
+	
+	npc.rank = Rank[$("#rank").val()].type;
+	npc.level = Level[$("#level").val()].type;
+	npc.species = Species[$("#species").val()].type;
+	npc.role = Role[$("#role").val()].type;
+	npc.update();
 	updateDisplay();
 }
 
-$(document).on('change','select', function(){
-	var prev = $(this).data('prev');
-	var current = $(this).val();
-	$(this).data('prev', current);
-});
-
 $(document).ready(function() {
-
 	Object.keys(Rank).forEach(r => $("#rank").append($("<option>").attr("value", r).append(Rank[r].name)));
 	$("#rank").val("NOOP").change();
 	
@@ -455,29 +330,10 @@ $(document).ready(function() {
 	Object.keys(Level).forEach(r => $("#level").append($("<option>").attr("value", r).append(Level[r].name)));
 	$("#level").val("NOOP").change();
 	
-	$('#rank').on('change', function (e) {
-		const current = $(this).val();
-		npc.rank = Rank[current].type;
-		updateRank();
-	});
-	$('#species').on('change', function (e) {
-		const current = $(this).val();
-		Species[current].type.apply();
-		update();
-	});
-	$('#role').on('change', function (e) {
-		const current = $(this).val();
-		Role[current].type.apply();
-		npc.levelUp();
-		update();
-	});
-	
-	$('#level').on('change', function (e) {
-		const current = $(this).val();
-		npc.level = Level[current].type
-		npc.levelUp();
-		update();
-	});
+	$('#species').on('change', function() {clear(); update(); });
+	$('#role').on('change', function() {clear(); update(); });
+	$('#level').on('change', function() {clear(); update(); });
+	$('#rank').on('change', function() {clear(); update(); });
 });
 	</script>
 </body>

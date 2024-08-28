@@ -1,107 +1,32 @@
 const BruteCustomizations = {
-	NOOP: {
-		name: "Select a Customization",
-		apply: function() {}
-	},
-	ADD_10_HP: {
-		name: "Add 10 HP",
-		apply: function() { npc.bonusHp += 10; }
-	},
-	COLLATERAL_DAMAGE: {
-		name: "Collateral Damage (special rule)",
-		apply: function() { }
-	},
-	DIE_HARD: {
-		name: "Die Hard (special rule)",
-		apply: function() { }
-	},
-	SPECIAL_ARMOR: {
-		name: "Special Armor (special rule)",
-		apply: function() { }
-	},
-	VENGEFUL_ATTACK: {
-		name: "Vengeful Attack (special rule)",
-		apply: function() { }
-	}
+	NOOP_CUSTOMIZATION: Modifier.NOOP_CUSTOMIZATION,
+	ADD_10_HP: Modifier.ADD_10_HP,
+	COLLATERAL_DAMAGE: Modifier.COLLATERAL_DAMAGE,
+	DIE_HARD: Modifier.DIE_HARD,
+	SPECIAL_ARMOR: Modifier.SPECIAL_ARMOR,
+	VENGEFUL_ATTACK: Modifier.VENGEFUL_ATTACK
 }
 
 const BruteSkills = {
-	NOOP: {
-		name: "Select a Skill",
-		apply: function() {}
-	},
-	IMMUNE_STATUS: {
-		name: "Immune to shaken and slow",
-		apply: function() { }
-	},
-	TARGET_MDEF: {
-		name: "Normal Attack Mod: Targets Magic Defense",
-		apply: function() { npc.attacks[0].mods.push("Targets Magic Defense"); }
-	},
-	STATUS_RECOVERY: {
-		name: "Normal Attack Mod: Status Recovery",
-		apply: function() { npc.attacks[0].mods.push("Status Recovery"); }
-	},
-	STRONG_RANGED: {
-		name: "Strong Attack Mod: Becomes ranged, uses [DEX + MIG], Targets suffer (Status)",
-		apply: function() { 
-			npc.attacks[1].isMelee = false;
-			npc.attacks[1].isRanged = true;
-			npc.attacks[1].attr1 = "DEX";
-			npc.attacks[1].attr2 = "MIG";
-			npc.attacks[1].mods.push("Target suffers (Status)");
-		}
-	},
-	COLLAPSE: {
-		name: "Collapse (special rule) (Elites & Champions only)",
-		apply: function() { }
-	},
-	ADD_SPELLS: {
-		name: "Learn two spells (Elites & Champions only)",
-		apply: function() { 
-			npc.spellNote = "Magic Check is [MIG + WLP]"
-			npc.maxSpells += 2; 
-		}
-	},
-	CRUSH: {
-		name: "Envelop and Crush (unique action)",
-		apply: function() { }
-	},
-	ENHANCING_GUARD: {
-		name: "Enhancing Guard (special rule)",
-		apply: function() { }
-	},
-	SORE_LOSER: {
-		name: "Sore Loser (special rule)",
-		apply: function() { }
-	}
+	NOOP_SKILL: Modifier.NOOP_SKILL,
+	IMMUNE_STATUS: Modifier.IMMUNE_SHAKEN_SLOW,
+	TARGET_MDEF: Modifier.TARGET_MDEF,
+	STATUS_RECOVERY: Modifier.STATUS_RECOVERY,
+	STRONG_RANGED: Modifier.STRONG_RANGED,
+	COLLAPSE: Modifier.COLLAPSE,
+	ADD_BRUTE_SPELLS: Modifier.ADD_BRUTE_SPELLS,
+	CRUSH: Modifier.CRUSH,
+	ENHANCING_GUARD: Modifier.ENHANCING_GUARD,
+	SORE_LOSER: Modifier.ENHANCING_GUARD
 }
 
 const BruteSpells = {
-	NOOP: {
-		name: "Select a Spell",
-		apply: function() {}
-	},
-	AREA_STATUS: {
-		name: "Area Status",
-		apply: function() {}
-	},
-	CURSED_BREATH: {
-		name: "Cursed Breath",
-		apply: function() {}
-	},
-	LIFE_THEFT: {
-		name: "Life Theft",
-		apply: function() {}
-	},
-	POISON: {
-		name: "Poison",
-		apply: function() {}
-	},
-	RAGE: {
-		name: "Rage",
-		apply: function() {}
-	}
+	NOOP_SPELL: Spell.NOOP_SPELL,
+	AREA_STATUS: Spell.AREA_STATUS,
+	CURSED_BREATH: Spell.CURSED_BREATH,
+	LIFE_THEFT: Spell.LIFE_THEFT,
+	POISON: Spell.POISON,
+	RAGE: Spell.RAGE
 }
 
 class Brute {
@@ -154,7 +79,7 @@ class Brute {
 		npc.attacks.push(attack2);
 		
 		npc.roleAffinityNotes = [];
-		npc.roleAffinityNotes.push("Give this NPC two Vulnerabilities");
+		npc.roleAffinityNotes.push("Add two Vulnerabilities");
 		npc.dex = 8;
 		npc.ins = 6;
 		npc.mig = 10;

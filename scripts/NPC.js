@@ -45,6 +45,8 @@ class NPC {
 		
 		this.maxCustomizations = 0;
 		this.customizations = [];
+		
+		this.statusNotes = [];
 	}
 	
 	update() {

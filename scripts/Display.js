@@ -19,6 +19,8 @@ function updateDisplay() {
 	$("#light").text(npc.light);
 	$("#poison").text(npc.poison);
 	
+	$("#statusNotes").text("").append(npc.statusNotes.join("<br>"));
+	
 	$("#roleAffinity").text("").append(npc.roleAffinityNotes.join("<br>"));
 	$("#speciesAffinity").text("").append(npc.speciesAffinityNotes.join("<br>"));
 	

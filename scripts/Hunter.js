@@ -1,71 +1,23 @@
 const HunterCustomizations = {
-	NOOP: {
-		name: "Select a Customization",
-		apply: function() {}
-	},
-	ADD_10_HP: {
-		name: "Add 10 HP",
-		apply: function() { npc.bonusHp += 10; }
-	},
-	LIFE_DRAIN: {
-		name: "Normal Attack Mod: Life Drain",
-		apply: function() { npc.attacks[0].mods.push("Life Drain"); }
-	},
-	EFFECTIVE_VS_STATUS: {
-		name: "Normal Attack Mod: Effective vs Status",
-		apply: function() { npc.attacks[0].mods.push("+5 Damage vs target with (Status)"); }
-	},
-	SPECIAL_ARMOR: {
-		name: "Emergency Camouflage (special rule)",
-		apply: function() {}
-	},
-	VENGEFUL_ATTACK: {
-		name: "False Sense of Security (special rule)",
-		apply: function() {}
-	},
-	OPPORTUNIST: {
-		name: "Opportunist (special rule)",
-		apply: function() {}
-	}
+	NOOP_CUSTOMIZATION: Modifier.NOOP_CUSTOMIZATION,
+	ADD_10_HP: Modifier.ADD_10_HP,
+	LIFE_DRAIN: Modifier.LIFE_DRAIN,
+	EFFECTIVE_VS_STATUS: Modifier.EFFECTIVE_VS_STATUS,
+	EMERGENCY_CAMO: Modifier.EMERGENCY_CAMO,
+	FALSE_SENSE_OF_SECURITY: Modifier.FALSE_SENSE_OF_SECURITY,
+	OPPORTUNIST: Modifier.OPPORTUNIST
 }
 
 const HunterSkills = {
-	NOOP: {
-		name: "Select a Skill",
-		apply: function() {}
-	},
-	IMMUNE_AFFINITY: {
-		name: "Immune to one damage type",
-		apply: function() { }
-	},
-	TARGET_MDEF: {
-		name: "Normal Attack Mod: Targets Magic Defense",
-		apply: function() { npc.attacks[0].mods.push("Targets Magic Defense"); }
-	},
-	BONUS_VS_CONDITION: {
-		name: "Normal Attack Mod: deals 5 extra damage against targets who are (condition)",
-		apply: function() { npc.attacks[0].mods.push("+5 damage vs (Condition)"); }
-	},
-	OVERLOAD: {
-		name: "Normal Attack Mod: Multi(2) and Overload",
-		apply: function() { npc.attacks[0].mods.push("Multi(2)"); npc.attacks[0].mods.push("Overload"); }
-	},
-	TARGET_LOCK: {
-		name: "Target Lock (unique action)",
-		apply: function() {}
-	},
-	AMBUSH: {
-		name: "Ambush (special rule)",
-		apply: function() {}
-	},
-	HUNTERS_BAIT: {
-		name: "Hunter's Bait (special rule)",
-		apply: function() {}
-	},
-	DEADLY_COUNTER: {
-		name: "Deadly Counter (special rule)",
-		apply: function() {}
-	}
+	NOOP: Modifier.NOOP_SKILL,
+	IMMUNE_AFFINITY: Modifier.IMMUNE_AFFINITY,
+	TARGET_MDEF: Modifier.TARGET_MDEF,
+	BONUS_VS_CONDITION: Modifier.BONUS_VS_CONDITION,
+	OVERLOAD: Modifier.OVERLOAD,
+	TARGET_LOCK: Modifier.TARGET_LOCK,
+	AMBUSH: Modifier.AMBUSH,
+	HUNTERS_BAIT: Modifier.HUNTERS_BAIT,
+	DEADLY_COUNTER: Modifier.DEADLY_COUNTER
 }
 
 class Hunter {
@@ -84,7 +36,7 @@ class Hunter {
 	}
 	
 	spells() {
-		return [];
+		return {};
 	}
 	
 	levelUp(level) {
@@ -113,10 +65,10 @@ class Hunter {
 		npc.attacks.push(attack);	
 		
 		npc.roleAffinityNotes = [];
-		npc.roleAffinityNotes.push("Give this NPC one Vulnerability");
+		npc.roleAffinityNotes.push("Add one Vulnerability");
 		
 		if(level >= 10) {
-				npc.attacks[0].mods.push("Ignores Resistances");
+			npc.attacks[0].mods.push("Ignores Resistances");
 		}
 		if(level >= 20) {
 			npc.wlp = 8;

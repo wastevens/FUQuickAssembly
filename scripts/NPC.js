@@ -33,6 +33,7 @@ class NPC {
 		this.attacks = [];
 		
 		this.spellNote = "";
+		this.maxSpells = 0;
 		this.spells = [];
 		
 		this.speciesSkillNote = "";
@@ -52,35 +53,37 @@ class NPC {
 			
 			this.species.apply();
 			$("select.speciesSkill").each(function(i, s) {
-				let value = $(s).val();
-				let skill = source.species.skills()[value];
-				source.speciesSkills.push(value);
-				skill.apply();
+				source._applyValue(s, source.species.skills(), source.speciesSkills);
 			});
 			
 			this.role.apply();
 			this.role.levelUp(this.level);
 			
 			$("select.customization").each(function(i, s) {
-				let value = $(s).val();
-				let customization = source.role.customizations()[value];
-				source.customizations.push(customization);
-				customization.apply();
+				source._applyValue(s, source.role.customizations(), source.customizations);
 			});
+			
 			$("select.roleSkill").each(function(i, s) {
-				let value = $(s).val();
-				let skill = source.role.skills()[value];
-				source.roleSkills.push(value);
-				skill.apply();
+				source._applyValue(s, source.role.skills(), source.roleSkills);
+			});
+			
+			$("select.spell").each(function(i, s) {
+				source._applyValue(s, source.role.spells(), source.spells);
 			});
 			
 			this.deriveHPandMP();
-			/**
+			
 			this.rank.apply();
-			**/
 		}
 	}
-		
+	
+	_applyValue(select, collection, addTo) {
+		let value = $(select).val();
+		let applicable = collection[value];
+		addTo.push(value);
+		applicable.apply();
+	}
+	
 	deriveHPandMP() {
 		this.hp += (this.mig ? (5 * this.mig) : 0) + (this.level ? (2 * this.level) : 0) + this.bonusHp;
 		this.mp += (this.wlp ? (5 * this.wlp) : 0) + (this.level ? (1 * this.level) : 0) + this.bonusMp;

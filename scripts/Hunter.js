@@ -83,6 +83,10 @@ class Hunter {
 		return HunterSkills;
 	}
 	
+	spells() {
+		return [];
+	}
+	
 	levelUp(level) {
 		npc.dex = 10;
 		npc.ins = 8;
@@ -97,7 +101,8 @@ class Hunter {
 		});
 		
 		const attack = new Attack();
-		attack.isMeleeOnly = false;
+		attack.isMelee = true;
+		attack.isRanged = true;
 		attack.name = "Normal Attack";
 		attack.attr1 = "DEX";
 		attack.attr2 = "INS";

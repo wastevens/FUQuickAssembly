@@ -36,15 +36,21 @@ const BruteSkills = {
 	},
 	TARGET_MDEF: {
 		name: "Normal Attack Mod: Targets Magic Defense",
-		apply: function() { }
+		apply: function() { npc.attacks[0].mods.push("Targets Magic Defense"); }
 	},
 	STATUS_RECOVERY: {
 		name: "Normal Attack Mod: Status Recovery",
-		apply: function() { }
+		apply: function() { npc.attacks[0].mods.push("Status Recovery"); }
 	},
 	STRONG_RANGED: {
 		name: "Strong Attack Mod: Becomes ranged, uses [DEX + MIG], Targets suffer (Status)",
-		apply: function() { }
+		apply: function() { 
+			npc.attacks[1].isMelee = false;
+			npc.attacks[1].isRanged = true;
+			npc.attacks[1].attr1 = "DEX";
+			npc.attacks[1].attr2 = "MIG";
+			npc.attacks[1].mods.push("Target suffers (Status)");
+		}
 	},
 	COLLAPSE: {
 		name: "Collapse (special rule) (Elites & Champions only)",
@@ -52,7 +58,10 @@ const BruteSkills = {
 	},
 	ADD_SPELLS: {
 		name: "Learn two spells (Elites & Champions only)",
-		apply: function() { }
+		apply: function() { 
+			npc.spellNote = "Magic Check is [MIG + WLP]"
+			npc.maxSpells += 2; 
+		}
 	},
 	CRUSH: {
 		name: "Envelop and Crush (unique action)",
@@ -67,41 +76,33 @@ const BruteSkills = {
 		apply: function() { }
 	}
 }
-/**	
-const BRUTE_SPELLS = {
-	NOOP: {
-		name: "Select a Spell",
-		type: function() {}
-	}
-}
 
-const BRUTE_SKILL_SPELLS = {
+const BruteSpells = {
 	NOOP: {
 		name: "Select a Spell",
-		type: function() {}
+		apply: function() {}
 	},
 	AREA_STATUS: {
 		name: "Area Status",
-		type: function() {}
+		apply: function() {}
 	},
 	CURSED_BREATH: {
 		name: "Cursed Breath",
-		type: function() {}
+		apply: function() {}
 	},
 	LIFE_THEFT: {
 		name: "Life Theft",
-		type: function() {}
+		apply: function() {}
 	},
 	POISON: {
 		name: "Poison",
-		type: function() {}
+		apply: function() {}
 	},
 	RAGE: {
 		name: "Rage",
-		type: function() {}
+		apply: function() {}
 	}
 }
-**/
 
 class Brute {
 	constructor() {
@@ -119,13 +120,18 @@ class Brute {
 		return BruteSkills;
 	}
 	
+	spells() {
+		return BruteSpells;
+	}
+	
 	levelUp(level) {
 		$(".attack").remove();
 		const accuracyBonus = Math.floor(level / 10);
 		const damageBonus = Math.floor(accuracyBonus / 2) * 5;
 		
 		const attack1 = new Attack();
-		attack1.isMeleeOnly = false;
+		attack1.isMelee = true;
+		attack1.isRanged = true;
 		attack1.name = "Normal Attack";
 		attack1.attr1 = "DEX";
 		attack1.attr2 = "MIG";
@@ -136,7 +142,8 @@ class Brute {
 		npc.attacks.push(attack1);
 		
 		const attack2 = new Attack();
-		attack2.isMeleeOnly = true;
+		attack2.isMelee = true;
+		attack1.isRanged = false;
 		attack2.name = "Strong Attack";
 		attack2.attr1 = "MIG";
 		attack2.attr2 = "MIG";

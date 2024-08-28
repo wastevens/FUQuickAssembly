@@ -1,6 +1,7 @@
 class Attack {
 	constructor() {
-		this.isMeleeOnly = false;
+		this.isRanged = false;
+		this.isMelee = false;
 		this.name = "";
 		this.attr1 = "";
 		this.attr2 = "";
@@ -16,10 +17,14 @@ class Attack {
 		const glyphDiv = $("<div>").addClass("col-1").addClass("p-0").addClass("text-center");
 		const meleeGlyph = $("<img>").attr("src", "glyphs/m-109.svg").css("height", "24px");
 		const rangedGlyph = $("<img>").attr("src", "glyphs/r-114.svg").css("height", "24px");
-		glyphDiv.append(meleeGlyph);
-		if(!this.isMeleeOnly) {
-			glyphDiv.append(" or ").append(rangedGlyph);
+		if(this.isMelee && this.isRanged) {
+			glyphDiv.append(meleeGlyph).append(" or ").append(rangedGlyph);
+		} else if(this.isMelee) {
+			glyphDiv.append(meleeGlyph);
+		} else if(this.isRanged) {
+			glyphDiv.append(rangedGlyph);
 		}
+			
 		
 		const basicDiv = $("<div>").addClass("col-5");
 		const nameSpan = $("<span>").append(this.name);

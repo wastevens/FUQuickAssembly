@@ -22,61 +22,37 @@ function updateDisplay() {
 	$("#roleAffinity").text("").append(npc.roleAffinityNotes.join("<br>"));
 	$("#speciesAffinity").text("").append(npc.speciesAffinityNotes.join("<br>"));
 	
-	
 	$(".attack").remove();
 	npc.attacks.forEach(a => $("#attacks").append(a.display()));
 	
 	$("#maxCustomizations").text(npc.maxCustomizations);
-		
 	$("#maxRoleSkills").text(npc.maxRoleSkills);
+	$("#maxSpells").text(npc.maxSpells);
 	
 	$("#maxSpeciesSkills").text(npc.maxSpeciesSkills);
 	$("#speciesSkillNotes").text(npc.speciesSkillNote);
 	
+	$("#spellNotes").text(npc.spellNotes);
 	
 	if(npc.role) {
-		let currentCount = $("div.customization").length;
-		if(currentCount > npc.maxCustomizations) {
-			$("div.customization").remove();
-			npc.customizations = [];
-			currentCount = 0;
-		}
-		for(let i=currentCount;i<npc.maxCustomizations;i++) {
-			addSelection(npc.role.customizations(), "customization", "customizations");
-		}
-		
-		currentCount = $("div.roleSkill").length;
-		if(currentCount > npc.maxRoleSkills) {
-			$("div.roleSkill").remove();
-			npc.roleSkills = [];
-			currentCount = 0;
-		}
-		for(let i=currentCount;i<npc.maxRoleSkills;i++) {
-			addSelection(npc.role.skills(), "roleSkill", "roleSkills");
-		}
+		updateSelections(npc.role.customizations(), npc.customizations, npc.maxCustomizations, "customization", "customizations");
+		updateSelections(npc.role.skills(), npc.roleSkills, npc.maxRoleSkills, "roleSkill", "roleSkills");
+		updateSelections(npc.role.spells(), npc.spells, npc.maxSpells, "spell", "spells");
 	}
 	
 	if(npc.species) {
-		let currentCount = $("div.speciesSkill").length;
-		if(currentCount > npc.maxSpeciesSkills) {
-			$("div.speciesSkill").remove();
-			npc.speciesSkills = [];
-			currentCount = 0;
-		}
-		for(let i=currentCount;i<npc.maxSpeciesSkills;i++) {
-			addSelection(npc.species.skills(), "speciesSkill", "speciesSkills");
-		}
+		updateSelections(npc.species.skills(), npc.speciesSkills, npc.maxSpeciesSkills, "speciesSkill", "speciesSkills");
 	}
 }
 
-function updateSelections(source, rowClass, containerId) {
+function updateSelections(source, collection, maxCount, rowClass, containerId) {
 	let currentCount = $("div." + rowClass).length;
-	if(currentCount > npc.maxSpeciesSkills) {
+	if(currentCount > maxCount) {
 		$("div." + rowClass).remove();
-		npc.speciesSkills = [];
+		collection = [];
 		currentCount = 0;
 	}
-	for(let i=currentCount;i<npc.maxSpeciesSkills;i++) {
+	for(let i=currentCount;i<maxCount;i++) {
 		addSelection(source, rowClass, containerId);
 	}
 }

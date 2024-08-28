@@ -9,9 +9,7 @@ class Soldier {
 	}
 	
 	apply() {
-		modifications.maxCustomizationsAdd.push(function() { 
-			npc.maxCustomizations++;
-		});
+		npc.maxCustomizations++;
 	}
 }
 
@@ -20,17 +18,9 @@ class Elite {
 	}
 	
 	apply() {
-		modifications.maxCustomizationsAdd.push(function() { 
-			npc.maxCustomizations++;
-		});
-		
-		modifications.maxRoleSkillsAdd.push(function() { 
-			npc.maxRoleSkills++;
-		});
-		
-		modifications.hpMultiply.push(function() { 
-			npc.hp *= 2;
-		});
+		npc.maxCustomizations++;
+		npc.maxRoleSkills++;
+		npc.hp *= 2;
 	}
 }
 
@@ -40,16 +30,9 @@ class Champion {
 	}
 	
 	apply() {
-		const source = this;
-				
-		modifications.maxRoleSkillsAdd.push(function() { 
-			npc.maxRoleSkills += source.x;
-		});
-		
-		modifications.hpMultiply.push(function() { 
-			npc.hp *= source.x;
-			npc.mp *= 2;
-		});
+		npc.maxRoleSkills += this.x;
+		npc.hp *= this.x;
+		npc.mp *= 2;
 	}
 }
 

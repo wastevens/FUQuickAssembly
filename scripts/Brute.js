@@ -17,7 +17,7 @@ const BruteSkills = {
 	ADD_BRUTE_SPELLS: Modifier.ADD_BRUTE_SPELLS,
 	CRUSH: Modifier.CRUSH,
 	ENHANCING_GUARD: Modifier.ENHANCING_GUARD,
-	SORE_LOSER: Modifier.ENHANCING_GUARD
+	SORE_LOSER: Modifier.SORE_LOSER
 }
 
 const BruteSpells = {

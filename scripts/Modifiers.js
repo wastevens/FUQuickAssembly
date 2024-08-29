@@ -167,10 +167,27 @@ const Modifier = {
 		name: "Replace one Resistance with Absorption",
 		apply: function() { }
 	},
+	IMMUNITY_TO_ABSORBTION: {
+		name: "Replace one Immunity with Absorption",
+		apply: function() { }
+	},
+	ADD_TWO_RESISTANCE: {
+		name: "Add two Resistances (not physical)",
+		apply: function() {
+			npc.speciesAffinityNotes.push("Add two Resistances (not physical)");
+		}
+	},
 	WEAKEN_SPELL: {
 		name: "Learn the Weaken spell and add +10 MP",
 		apply: function() { 
 			npc.fixedSpells.push("Weaken");
+			npc.bonusMp += 10;
+		}
+	},
+	BREATH_SPELL: {
+		name: "Learn the Breath spell and add +10 MP",
+		apply: function() { 
+			npc.fixedSpells.push("Breath");
 			npc.bonusMp += 10;
 		}
 	},

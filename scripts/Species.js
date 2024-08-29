@@ -14,5 +14,13 @@ const Species = {
 	DEMON: {
 		name: "Demon",
 		type: new Demon()
+	},
+	ELEMENTAL: {
+		name: "Elemental",
+		type: new Elemental()
+	},
+	HUMANOID: {
+		name: "Humanoid",
+		type: new Humanoid()
 	}
 }

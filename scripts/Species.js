@@ -22,5 +22,9 @@ const Species = {
 	HUMANOID: {
 		name: "Humanoid",
 		type: new Humanoid()
+	},
+	MONSTER: {
+		name: "Monster",
+		type: new Monster()
 	}
 }

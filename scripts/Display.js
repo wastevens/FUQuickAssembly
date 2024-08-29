@@ -45,7 +45,9 @@ function updateDisplay() {
 	if(npc.species) {
 		updateSelections(npc.species.skills(), npc.speciesSkills, npc.maxSpeciesSkills, "speciesSkill", "speciesSkills");
 	}
-}
+	$("div.fixedSpell").remove();
+	npc.fixedSpells.forEach(s => addFixed(s, "fixedSpell", "spells"));
+}	
 
 function updateSelections(source, collection, maxCount, rowClass, containerId) {
 	let currentCount = $("div." + rowClass).length;
@@ -69,4 +71,15 @@ function addSelection(source, rowClass, containerId) {
 	Object.keys(source).forEach(r => select.append($("<option>").attr("value", r).append(source[r].name)));
 	
 	$("#" + containerId).append(selectRow);
+}
+
+function addFixed(value, rowClass, containerId) {
+	const spanRow = $("<div>").addClass("row").addClass(rowClass);
+	const spanDiv = $("<div>").addClass("col");
+	const span = $("<span>").addClass(rowClass).text(value);
+	
+	spanDiv.append(span);
+	spanRow.append(spanDiv);
+	
+	$("#" + containerId).append(spanRow);
 }

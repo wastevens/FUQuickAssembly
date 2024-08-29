@@ -35,6 +35,7 @@ class NPC {
 		this.spellNote = "";
 		this.maxSpells = 0;
 		this.spells = [];
+		this.fixedSpells = [];
 		
 		this.speciesSkillNote = "";
 		this.maxSpeciesSkills = 0;

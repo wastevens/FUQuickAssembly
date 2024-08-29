@@ -128,12 +128,19 @@ const Modifier = {
 		name: "Deadly Counter (special rule)",
 		apply: function() {}
 	},
-	// Beast Skills
+	
 	INCREASE_DEFENSE: {
 		name: "+2 to Defense and +1 to Magic Defense",
 		apply: function() { 
 			npc.def += 2; 
 			npc.mdef += 1;
+		}
+	},
+	INCREASE_MDEFENSE: {
+		name: "+1 to Defense and +2 to Magic Defense",
+		apply: function() { 
+			npc.def += 1; 
+			npc.mdef += 2;
 		}
 	},
 	CONTEXT_BONUS: {
@@ -154,6 +161,17 @@ const Modifier = {
 		name: "Immunity to two status effects",
 		apply: function() { 
 			npc.statusNotes.push("Immunity to <b>two</b> status effects");
+		}
+	},
+	RESISTANCE_TO_ABSORBTION: {
+		name: "Replace one Resistance with Absorption",
+		apply: function() { }
+	},
+	WEAKEN_SPELL: {
+		name: "Learn the Weaken spell and add +10 MP",
+		apply: function() { 
+			npc.fixedSpells.push("Weaken");
+			npc.bonusMp += 10;
 		}
 	},
 }

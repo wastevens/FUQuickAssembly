@@ -10,5 +10,9 @@ const Species = {
 	CONSTRUCT: {
 		name: "Construct",
 		type: new Construct()
+	},
+	DEMON: {
+		name: "Demon",
+		type: new Demon()
 	}
 }

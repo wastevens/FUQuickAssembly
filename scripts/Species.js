@@ -26,5 +26,13 @@ const Species = {
 	MONSTER: {
 		name: "Monster",
 		type: new Monster()
+	},
+	PLANT: {
+		name: "Plant",
+		type: new Plant()
+	},
+	UNDEAD: {
+		name: "Undead",
+		type: new Undead()
 	}
 }

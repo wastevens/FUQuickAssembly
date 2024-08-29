@@ -165,11 +165,22 @@ const Modifier = {
 	},
 	RESISTANCE_TO_ABSORBTION: {
 		name: "Replace one Resistance with Absorption",
-		apply: function() { }
+		apply: function() { 
+			npc.speciesAffinityNotes.push("Replace one Resistance with Absorption");
+		}
 	},
 	IMMUNITY_TO_ABSORBTION: {
 		name: "Replace one Immunity with Absorption",
-		apply: function() { }
+		apply: function() { 
+			npc.speciesAffinityNotes.push("Replace one Immunity with Absorption");
+		}
+	},
+	DARK_IMMUNITY_TO_ABSORBTION: {
+		name: "Replace Dark Immunity with Absorption",
+		apply: function() { 
+			npc.speciesAffinityNotes.push("Replace Dark Immunity with Absorption");
+			npc.dark = "AB";
+		}
 	},
 	ADD_TWO_RESISTANCE: {
 		name: "Add two Resistances (not physical)",
@@ -177,10 +188,22 @@ const Modifier = {
 			npc.speciesAffinityNotes.push("Add two Resistances (not physical)");
 		}
 	},
+	THORNS: {
+		name: "Thorns (Special Rule)",
+		apply: function() { 
+		}
+	},
 	WEAKEN_SPELL: {
 		name: "Learn the Weaken spell and add +10 MP",
 		apply: function() { 
 			npc.fixedSpells.push("Weaken");
+			npc.bonusMp += 10;
+		}
+	},
+	POISON_SPELL: {
+		name: "Learn the Poison spell and add +10 MP",
+		apply: function() { 
+			npc.fixedSpells.push("Poison");
 			npc.bonusMp += 10;
 		}
 	},

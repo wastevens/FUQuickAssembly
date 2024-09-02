@@ -10,5 +10,9 @@ const Role = {
 	HUNTER: {
 		name: "Hunter",
 		type: new Hunter()
+	},
+	MAGE: {
+		name: "Mage",
+		type: new Mage()
 	}
 }

@@ -65,7 +65,7 @@ class Hunter {
 		npc.attacks.push(attack);	
 		
 		npc.roleAffinityNotes = [];
-		npc.roleAffinityNotes.push("Add one Vulnerability");
+		npc.weakAffinityNotes.push("Add one Vulnerability");
 		
 		if(level >= 10) {
 			npc.attacks[0].mods.push("Ignores Resistances");
@@ -75,7 +75,7 @@ class Hunter {
 			npc.roleSkillCount++;
 		}
 		if(level >= 30) {
-			npc.roleAffinityNotes.push("Add two Resistances (not physical)");
+			Modifier.ADD_TWO_RESISTANCE.apply();
 		}
 		if(level >= 40) {
 			npc.dex = 12;

@@ -21,8 +21,8 @@ function updateDisplay() {
 	
 	$("#statusNotes").text("").append(npc.statusNotes.join("<br>"));
 	
-	$("#roleAffinity").text("").append(npc.roleAffinityNotes.join("<br>"));
-	$("#speciesAffinity").text("").append(npc.speciesAffinityNotes.join("<br>"));
+	$("#weakAffinity").text("").append(npc.weakAffinityNotes.join("<br>"));
+	$("#strongAffinity").text("").append(npc.strongAffinityNotes.join("<br>"));
 	
 	$(".attack").remove();
 	npc.attacks.forEach(a => $("#attacks").append(a.display()));

@@ -13,8 +13,8 @@ class Construct {
 	}
 
 	apply() {
-		npc.speciesAffinityNotes.push("Resistant to <b>Earth</b>");
-		npc.speciesAffinityNotes.push("Immunity to <b>poison</b>");
+		npc.strongAffinityNotes.push("Resistant to <b>Earth</b>");
+		npc.strongAffinityNotes.push("Immunity to <b>poison</b>");
 		npc.earth = "RS";
 		npc.poison = "IM";
 		

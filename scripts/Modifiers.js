@@ -1,10 +1,10 @@
 const Modifier = {
-	NOOP_SKILL: {
-		name: "Select a Skill",
-		apply: function() {}
-	},
 	NOOP_CUSTOMIZATION: {
 		name: "Select a Customization",
+		apply: function() {}
+	},
+	NOOP_SKILL: {
+		name: "Select a Skill",
 		apply: function() {}
 	},
 	ADD_10_HP: {
@@ -33,19 +33,7 @@ const Modifier = {
 	ADD_TWO_RESISTANCE: {
 		name: "Add two Resistances (not physical)",
 		apply: function() {
-			npc.speciesAffinityNotes.push("Add two Resistances (not physical)");
-		}
-	},
-	ADD_TWO_RESISTANCE_ROLE: {
-		name: "Add two Resistances (not physical)",
-		apply: function() {
-			npc.roleAffinityNotes.push("Add two Resistances (not physical)");
-		}
-	},
-	ADD_TWO_RESISTANCE_SPECIES: {
-		name: "Add two Resistances (not physical)",
-		apply: function() {
-			npc.speciesAffinityNotes.push("Add two Resistances (not physical)");
+			npc.strongAffinityNotes.push("Add two Resistances (not physical)");
 		}
 	},
 	AMBUSH: {
@@ -65,13 +53,13 @@ const Modifier = {
 		apply: function() { }
 	},
 	CRUSH: {
-		name: "Envelop and Crush (unique action)",
+		name: "Crush (unique action)",
 		apply: function() { }
 	},
 	DARK_IMMUNITY_TO_ABSORBTION: {
 		name: "Replace Dark Immunity with Absorption",
 		apply: function() { 
-			npc.speciesAffinityNotes.push("Replace Dark Immunity with Absorption");
+			npc.strongAffinityNotes.push("Replace Dark Immunity with Absorption");
 			npc.dark = "AB";
 		}
 	},
@@ -113,7 +101,7 @@ const Modifier = {
 	},
 	IMMUNE_AFFINITY: {
 		name: "Immune to one damage type",
-		apply: function() { npc.roleAffinityNotes.push("Add one Immunity"); }
+		apply: function() { npc.strongAffinityNotes.push("Add one Immunity"); }
 	},
 	IMMUNE_SHAKEN_SLOW: {
 		name: "Immune to shaken and slow",
@@ -122,7 +110,7 @@ const Modifier = {
 	IMMUNITY_TO_ABSORBTION: {
 		name: "Replace one Immunity with Absorption",
 		apply: function() { 
-			npc.speciesAffinityNotes.push("Replace one Immunity with Absorption");
+			npc.strongAffinityNotes.push("Replace one Immunity with Absorption");
 		}
 	},
 	IMMUNITY_TWO_STATUS: {
@@ -202,7 +190,7 @@ const Modifier = {
 	RESISTANCE_TO_ABSORBTION: {
 		name: "Replace one Resistance with Absorption",
 		apply: function() { 
-			npc.speciesAffinityNotes.push("Replace one Resistance with Absorption");
+			npc.strongAffinityNotes.push("Replace one Resistance with Absorption");
 		}
 	},
 	SORE_LOSER: {

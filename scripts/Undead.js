@@ -12,9 +12,9 @@ class Undead {
 	}
 
 	apply() {
-		npc.speciesAffinityNotes.push("Vulnerability to <b>Light</b>");
-		npc.speciesAffinityNotes.push("Immunity to <b>Dark</b>");
-		npc.speciesAffinityNotes.push("Immunity to <b>Poison</b>");
+		npc.weakAffinityNotes.push("Vulnerability to <b>Light</b>");
+		npc.strongAffinityNotes.push("Immunity to <b>Dark</b>");
+		npc.strongAffinityNotes.push("Immunity to <b>Poison</b>");
 		npc.light = "VU";
 		npc.dark = "IM";
 		npc.poison = "IM";

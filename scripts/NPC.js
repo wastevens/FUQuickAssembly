@@ -28,8 +28,8 @@ class NPC {
 		this.light = "";
 		this.poison = "";
 		
-		this.roleAffinityNotes = [];
-		this.speciesAffinityNotes = [];
+		this.weakAffinityNotes = [];
+		this.strongAffinityNotes = [];
 		this.attacks = [];
 		
 		this.spellNote = "";

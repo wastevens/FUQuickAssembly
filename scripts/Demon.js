@@ -12,7 +12,7 @@ class Demon {
 	}
 	
 	apply() {
-		npc.speciesAffinityNotes.push("Resistant to <b>two</b> damage types");
+		Modifier.ADD_TWO_RESISTANCE.apply();
 		npc.maxSpeciesSkills += 1;
 	}
 	

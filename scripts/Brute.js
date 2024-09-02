@@ -79,7 +79,7 @@ class Brute {
 		npc.attacks.push(attack2);
 		
 		npc.roleAffinityNotes = [];
-		npc.roleAffinityNotes.push("Add two Vulnerabilities");
+		npc.weakAffinityNotes.push("Add two Vulnerabilities");
 		npc.dex = 8;
 		npc.ins = 6;
 		npc.mig = 10;
@@ -88,14 +88,14 @@ class Brute {
 		npc.level = level;
 		
 		if(level >= 10) {
-			npc.roleAffinityNotes.push("Add two Resistances (not physical)");
+			Modifier.ADD_TWO_RESISTANCE.apply();
 		}
 		if(level >= 20) {
 			npc.ins = 8;
 			npc.maxRoleSkills++;
 		}
 		if(level >= 30) {
-			npc.roleAffinityNotes.push("Add one Immunity");
+			Modifier.IMMUNE_AFFINITY.apply();
 		}
 		if(level >= 40) {
 			npc.mig = 12;

@@ -13,7 +13,7 @@ class Plant {
 	}
 
 	apply() {
-		npc.speciesAffinityNotes.push("Vulnerability to one of <b>(Air, Bolt, Fire, Ice)</b>");
+		npc.weakAffinityNotes.push("Vulnerability to one of <b>(Air, Bolt, Fire, Ice)</b>");
 		npc.statusNotes.push("Immunity to the <b>dazed, enraged, shaken</b> status");
 		
 		npc.maxSpeciesSkills += 1;

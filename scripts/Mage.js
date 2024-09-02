@@ -9,7 +9,7 @@ const MageCustomizations = {
 const MageSkills = {
 	NOOP_SKILL: Modifier.NOOP_SKILL,
 	IMMUNITY_TWO_MAGE_STATUS: Modifier.IMMUNITY_TWO_MAGE_STATUS,
-	ADD_TWO_RESISTANCE_ROLE: Modifier.ADD_TWO_RESISTANCE_ROLE,
+	ADD_TWO_RESISTANCE: Modifier.ADD_TWO_RESISTANCE,
 	NORMAL_ATTACK_MP_RECOVERY: Modifier.NORMAL_ATTACK_MP_RECOVERY,
 	NORMAL_ATTACK_VOLATILE: Modifier.NORMAL_ATTACK_VOLATILE,
 	ADD_MAGE_SPELLS: Modifier.ADD_MAGE_SPELLS,
@@ -74,7 +74,7 @@ class Mage {
 		
 		
 		npc.roleAffinityNotes = [];
-		npc.roleAffinityNotes.push("Add one Vulnerability");
+		npc.weakAffinityNotes.push("Add one Vulnerability");
 		npc.dex = 8;
 		npc.ins = 8;
 		npc.mig = 6;
@@ -90,7 +90,7 @@ class Mage {
 			npc.maxRoleSkills++;
 		}
 		if(level >= 30) {
-			Modifier.ADD_TWO_RESISTANCE_ROLE.apply();
+			Modifier.ADD_TWO_RESISTANCE.apply();
 		}
 		if(level >= 40) {
 			npc.mig = 8;

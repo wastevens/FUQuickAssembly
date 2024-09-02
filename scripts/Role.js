@@ -14,5 +14,9 @@ const Role = {
 	MAGE: {
 		name: "Mage",
 		type: new Mage()
+	},
+	SABOTEUR: {
+		name: "Saboteur",
+		type: new Saboteur()
 	}
 }

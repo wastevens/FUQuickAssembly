@@ -24,6 +24,13 @@ const Modifier = {
 			npc.maxSpells += 2; 
 		}
 	},
+	ADD_SABOTEUR_SPELLS: {
+		name: "Learn one additional spell and gain +10 MP",
+		apply: function() { 
+			npc.maxSpells += 1; 
+			npc.bonusMp += 10;
+		}
+	},
 	ADD_ROLE_SKILL: {
 		name: "An additional Role skill",
 		apply: function() { 
@@ -34,6 +41,25 @@ const Modifier = {
 		name: "Add two Resistances (not physical)",
 		apply: function() {
 			npc.strongAffinityNotes.push("Add two Resistances (not physical)");
+		}
+	},
+	ADD_STRONG_ATTACK_SABOTEUR: {
+		name: "Add Strong Attack",
+		apply: function() {
+			const accuracyBonus = Math.floor(npc.level / 10);
+			const damageBonus = Math.floor(accuracyBonus / 2) * 5;
+		
+			const attack = new Attack();
+			attack.isMelee = true;
+			attack.isRanged = true;
+			attack.name = "Strong Attack";
+			attack.attr1 = "DEX";
+			attack.attr2 = "INS";
+			attack.accuracy = accuracyBonus;
+			attack.damage = 5 + damageBonus;
+			attack.extraDamage = false;
+			attack.mods.push("Target cannot perform (choose one: Attack, Guard, Inventory, Objective, Spell, Skill) during the next turn");
+			npc.attacks.push(attack);
 		}
 	},
 	AMBUSH: {
@@ -52,6 +78,10 @@ const Modifier = {
 		name: "+3 bonus to Opposed checks in favorable contexts",
 		apply: function() { }
 	},
+	CRUEL_HYPNOSIS: {
+		name: "Cruel Hypnosis (unique action)",
+		apply: function() { }
+	},	
 	CRUSH: {
 		name: "Crush (unique action)",
 		apply: function() { }
@@ -87,12 +117,24 @@ const Modifier = {
 		name: "Enhancing Guard (special rule)",
 		apply: function() { }
 	},
+	ENTANGLE: {
+		name: "Entangle (special rule)",
+		apply: function() { }
+	},
+	EXHAUSTING_COMPROMISE: {
+		name: "Exhausting Compromise (special rule)",
+		apply: function() { }
+	},
 	FALSE_SENSE_OF_SECURITY: {
 		name: "False Sense of Security (special rule)",
 		apply: function() {}
 	},
 	FLYING: {
 		name: "Flying (pg 307 of Core Rulebook)",
+		apply: function() {  }
+	},
+	HINDERING_SPECIALIST: {
+		name: "Hindering Specialist (special rule)",
 		apply: function() {  }
 	},
 	HUNTERS_BAIT: {
@@ -125,6 +167,12 @@ const Modifier = {
 			npc.statusNotes.push("Immunity to <b>(chose two: dazed, enraged, poisoned, shaken)</b>");
 		}
 	},
+	INCREASE_ACCURACY: {
+		name: "+3 Accuracy",
+		apply: function() { 
+			npc.attacks.forEach(a => a.accuracy += 3);
+		}
+	},	
 	INCREASE_DEFENSE: {
 		name: "+2 to Defense and +1 to Magic Defense",
 		apply: function() { 
@@ -143,15 +191,19 @@ const Modifier = {
 		name: "Magical Mastery (special rule)",
 		apply: function() { }
 	},
-	EFFECTIVE_VS_STATUS: {
-		name: "Normal Attack Mod: Effective vs Status",
-		apply: function() { npc.attacks[0].mods.push("+5 Damage vs target with (Status)"); }
-	},
-	BONUS_VS_CONDITION: {
+	NORMAL_ATTACK_BONUS_VS_CONDITION: {
 		name: "Normal Attack Mod: deals 5 extra damage against targets who are (condition)",
 		apply: function() { npc.attacks[0].mods.push("+5 damage vs (Condition)"); }
 	},
-	LIFE_DRAIN: {
+	NORMAL_ATTACK_EFFECTIVE_VS_STATUS: {
+		name: "Normal Attack Mod: Effective vs Status",
+		apply: function() { npc.attacks[0].mods.push("+5 Damage vs target with (Status)"); }
+	},
+	NORMAL_ATTACK_IGNORES_RESISTANCE: {
+		name: "Normal Attack Mod: Ignores Resistances",
+		apply: function() { npc.attacks[0].mods.push("Ignores Resistances"); }
+	},
+	NORMAL_ATTACK_LIFE_DRAIN: {
 		name: "Normal Attack Mod: Life Drain",
 		apply: function() { npc.attacks[0].mods.push("Life Drain"); }
 	},
@@ -159,11 +211,15 @@ const Modifier = {
 		name: "Normal Attack Mod: MP Recovery",
 		apply: function() { npc.attacks[0].mods.push("Recover 10 MP (20 MP at Lvl 30+)"); }
 	},
-	OVERLOAD: {
+	NORMAL_ATTACK_MULTI_2: {
+		name: "Normal Attack Mod: Multi (2)",
+		apply: function() { npc.attacks[0].mods.push("Multi (2)"); }
+	},
+	NORMAL_ATTACK_OVERLOAD: {
 		name: "Normal Attack Mod: Multi(2) and Overload",
 		apply: function() { npc.attacks[0].mods.push("Multi(2)"); npc.attacks[0].mods.push("Overload"); }
 	},
-	STATUS_RECOVERY: {
+	NORMAL_ATTACK_STATUS_RECOVERY: {
 		name: "Normal Attack Mod: Status Recovery",
 		apply: function() { npc.attacks[0].mods.push("Status Recovery"); }
 	},
@@ -171,13 +227,13 @@ const Modifier = {
 		name: "Normal Attack Mod: Targets Magic Defense",
 		apply: function() { npc.attacks[0].mods.push("Targets Magic Defense"); }
 	},
-	TARGET_MDEF: {
-		name: "Normal Attack Mod: Targets Magic Defense",
-		apply: function() { npc.attacks[0].mods.push("Targets Magic Defense"); }
-	},
 	NORMAL_ATTACK_VOLATILE: {
 		name: "Normal Attack Mod: Volatile",
 		apply: function() { npc.attacks[0].mods.push("Voltaile"); }
+	},
+	NORMAL_ATTACK_WITHER: {
+		name: "Normal Attack Mod: Withering",
+		apply: function() { npc.attacks[0].mods.push("Wither"); }
 	},
 	OPPORTUNIST: {
 		name: "Opportunist (special rule)",
@@ -187,12 +243,24 @@ const Modifier = {
 		name: "Overwhelm (special rule)",
 		apply: function() {}
 	},
+	PARTING_GIFT: {
+		name: "Parting Gift (special rule)",
+		apply: function() { }
+	},	
 	RESISTANCE_TO_ABSORBTION: {
 		name: "Replace one Resistance with Absorption",
-		apply: function() { 
+		apply: function() {
 			npc.strongAffinityNotes.push("Replace one Resistance with Absorption");
 		}
 	},
+	SECRET_TECHNIQUE: {
+		name: "Secret Technique (special rule)",
+		apply: function() { }
+	},
+	SHADOW_OF_DOUBT: {
+		name: "Shadow of Doubt (special rule)",
+		apply: function() { }
+	},	
 	SORE_LOSER: {
 		name: "Sore Loser (special rule)",
 		apply: function() { }
@@ -205,7 +273,7 @@ const Modifier = {
 		name: "Special Armor (special rule)",
 		apply: function() { }
 	},
-	STRONG_RANGED: {
+	STRONG_ATTACK_RANGED: {
 		name: "Strong Attack Mod: Becomes ranged, uses [DEX + MIG], Targets suffer (Status)",
 		apply: function() { 
 			npc.attacks[1].isMelee = false;
@@ -214,6 +282,10 @@ const Modifier = {
 			npc.attacks[1].attr2 = "MIG";
 			npc.attacks[1].mods.push("Target suffers (Status)");
 		}
+	},
+	SYPHON_MIND: {
+		name: "Syphon Mind (unique action)",
+		apply: function() {}
 	},
 	TARGET_LOCK: {
 		name: "Target Lock (unique action)",

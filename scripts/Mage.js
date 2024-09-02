@@ -41,6 +41,8 @@ class Mage {
 	}
 	
 	apply() {
+		npc.def += 1;
+		npc.mdef += 2;
 		npc.maxSpells += 2; 
 	}
 	

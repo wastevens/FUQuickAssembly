@@ -7,6 +7,7 @@ class Attack {
 		this.attr2 = "";
 		this.accuracy = 0;
 		this.baseDamage = 5;
+		this.damage = 0;
 		this.extraDamage = false;
 		this.mods = [];
 	}
@@ -29,7 +30,7 @@ class Attack {
 		const basicDiv = $("<div>").addClass("col-5");
 		const nameSpan = $("<span>").append(this.name);
 		const accuracySpan = $("<span>").append("<b>[" + this.attr1 + " + " + this.attr2 + "]" + (this.accuracy != 0 ? " + " + this.accuracy : ""));
-		const dmgSpan = $("<span>").append("<b>[HR + " + (this.baseDamage + (this.extraDamage ? 5 : 0)) +"]</b> (Type) damage");
+		const dmgSpan = $("<span>").append("<b>[HR + " + (this.damage + (this.extraDamage ? 5 : 0)) +"]</b> (Type) damage");
 		basicDiv.append(nameSpan).append(this._spaceSpan()).append(accuracySpan).append(this._spaceSpan()).append(dmgSpan);
 		
 		const modDiv = $("<div>").addClass("col");

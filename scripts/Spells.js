@@ -21,8 +21,24 @@ const Spell = {
 		name: "Cursed Breath",
 		apply: function() {}
 	},
+	CURSE_XL: {
+		name: "Curse XL",
+		apply: function() {}
+	},
 	DEVESTATION: {
 		name: "Devestation (Must be Lvl 30+)",
+		apply: function() {}
+	},	
+	DISPEL: {
+		name: "Dispel",
+		apply: function() {}
+	},
+	DRAIN_SPIRIT: {
+		name: "Drain Spirit",
+		apply: function() {}
+	},
+	ENRAGE: {
+		name: "Enrage",
 		apply: function() {}
 	},
 	FLARE: {
@@ -33,6 +49,10 @@ const Spell = {
 		name: "Glacias (Must be Lvl 30+)",
 		apply: function() {}
 	},
+	HALLUCINATION: {
+		name: "Hallucination",
+		apply: function() {}
+	},	
 	IGNIS: {
 		name: "Ignis",
 		apply: function() {}
@@ -65,12 +85,20 @@ const Spell = {
 		name: "Thunderbolt (Must be Lvl 30+)",
 		apply: function() {}
 	},
+	TORPOR: {
+		name: "Torpor",
+		apply: function() {}
+	},
 	UMBRA: {
 		name: "Umbra",
 		apply: function() {}
 	},
 	VENTUS: {
 		name: "Ventus",
+		apply: function() {}
+	},
+	WEAKEN: {
+		name: "Weaken",
 		apply: function() {}
 	}
 }

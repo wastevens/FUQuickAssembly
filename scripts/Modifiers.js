@@ -27,6 +27,15 @@ const Modifier = {
 	ADD_SABOTEUR_SPELLS: {
 		name: "Learn one additional spell and gain +10 MP",
 		apply: function() { 
+			npc.spellNote = "Magic Check is [INS + WLP]"
+			npc.maxSpells += 1; 
+			npc.bonusMp += 10;
+		}
+	},
+	ADD_SENTINEL_SPELLS: {
+		name: "Learn one additional spell and gain +10 MP",
+		apply: function() { 
+			npc.spellNote = "Magic Check is [MIG + WLP]"
 			npc.maxSpells += 1; 
 			npc.bonusMp += 10;
 		}
@@ -62,10 +71,22 @@ const Modifier = {
 			npc.attacks.push(attack);
 		}
 	},
+	ADVISE: {
+		name: "Advise (unique action)",
+		apply: function() {}		
+	},
 	AMBUSH: {
 		name: "Ambush (special rule)",
 		apply: function() {}
 	},
+	AVENGE: {
+		name: "Avenge (special rule)",
+		apply: function() {}
+	},	
+	BARRICADE: {
+		name: "Barricade (unique action)",
+		apply: function() {}
+	},	
 	COLLAPSE: {
 		name: "Collapse (special rule) (Elites & Champions only)",
 		apply: function() { }
@@ -76,6 +97,10 @@ const Modifier = {
 	},
 	CONTEXT_BONUS: {
 		name: "+3 bonus to Opposed checks in favorable contexts",
+		apply: function() { }
+	},
+	COVER: {
+		name: "Cover (special rule)",
 		apply: function() { }
 	},
 	CRUEL_HYPNOSIS: {
@@ -129,10 +154,18 @@ const Modifier = {
 		name: "False Sense of Security (special rule)",
 		apply: function() {}
 	},
+	FOLLOW_UP_ATTACK: {
+		name: "Follow-up Attack (special rule)",
+		apply: function() {}		
+	},
 	FLYING: {
 		name: "Flying (pg 307 of Core Rulebook)",
 		apply: function() {  }
 	},
+	HEALING_AURA: {
+		name: "Healing Aura (special rule)",
+		apply: function() {  }
+	},	
 	HINDERING_SPECIALIST: {
 		name: "Hindering Specialist (special rule)",
 		apply: function() {  }
@@ -144,6 +177,10 @@ const Modifier = {
 	IMMUNE_AFFINITY: {
 		name: "Immune to one damage type",
 		apply: function() { npc.strongAffinityNotes.push("Add one Immunity"); }
+	},
+	IMMUNE_AFFINITY_NON_PHYSICAL: {
+		name: "Immune to one damage type other than physical",
+		apply: function() { npc.strongAffinityNotes.push("Add one Immunity other than physical"); }
 	},
 	IMMUNE_SHAKEN_SLOW: {
 		name: "Immune to shaken and slow",
@@ -167,6 +204,10 @@ const Modifier = {
 			npc.statusNotes.push("Immunity to <b>(chose two: dazed, enraged, poisoned, shaken)</b>");
 		}
 	},
+	IMPROVED_AVENGE: {
+		name: "Improved Avenge (special rule)",
+		apply: function() {}
+	},
 	INCREASE_ACCURACY: {
 		name: "+3 Accuracy",
 		apply: function() { 
@@ -187,10 +228,22 @@ const Modifier = {
 			npc.mdef += 2;
 		}
 	},
+	INSPIRE: {
+		name: "Inspire (unique action)",
+		apply: function() {}		
+	},	
+	INTERCEPT: {
+		name: "Intercept (special rule)",
+		apply: function() {}
+	},
 	MAGICAL_MASTERY: {
 		name: "Magical Mastery (special rule)",
 		apply: function() { }
 	},
+	MP_BATTERY: {
+		name: "MP Battery (special rule)",
+		apply: function() { }
+	},	
 	NORMAL_ATTACK_BONUS_VS_CONDITION: {
 		name: "Normal Attack Mod: deals 5 extra damage against targets who are (condition)",
 		apply: function() { npc.attacks[0].mods.push("+5 damage vs (Condition)"); }
@@ -202,6 +255,10 @@ const Modifier = {
 	NORMAL_ATTACK_IGNORES_RESISTANCE: {
 		name: "Normal Attack Mod: Ignores Resistances",
 		apply: function() { npc.attacks[0].mods.push("Ignores Resistances"); }
+	},
+	NORMAL_ATTACK_INFLICT_STATUS: {
+		name: "Normal Attack Mod: Ignores Resistances",
+		apply: function() { npc.attacks[0].mods.push("Hit target suffers (choose one: dazed, shaken, slow, weak)."); }
 	},
 	NORMAL_ATTACK_LIFE_DRAIN: {
 		name: "Normal Attack Mod: Life Drain",
@@ -223,6 +280,10 @@ const Modifier = {
 		name: "Normal Attack Mod: Status Recovery",
 		apply: function() { npc.attacks[0].mods.push("Status Recovery"); }
 	},
+	NORMAL_ATTACK_SOLO_MULTI_2: {
+		name: "Normal Attack Mod: Multi (2) when no allies on scene",
+		apply: function() { npc.attacks[0].mods.push("Multi (2) when no allies on scene"); }
+	},
 	NORMAL_ATTACK_TARGET_MDEF: {
 		name: "Normal Attack Mod: Targets Magic Defense",
 		apply: function() { npc.attacks[0].mods.push("Targets Magic Defense"); }
@@ -235,6 +296,10 @@ const Modifier = {
 		name: "Normal Attack Mod: Withering",
 		apply: function() { npc.attacks[0].mods.push("Wither"); }
 	},
+	ONE_LAST_COMMAND: {
+		name: "One Last Command (special rule)",
+		apply: function() {}
+	},
 	OPPORTUNIST: {
 		name: "Opportunist (special rule)",
 		apply: function() {}
@@ -246,7 +311,19 @@ const Modifier = {
 	PARTING_GIFT: {
 		name: "Parting Gift (special rule)",
 		apply: function() { }
+	},
+	REASSURING_AURA: {
+		name: "Reassuring Aura (special rule)",
+		apply: function() { }
+	},
+	REASSURING_LEADERSHIP: {
+		name: "Reassuring Leadership (special rule)",
+		apply: function() { }
 	},	
+	REDUCE_PROGRESS: {
+		name: "Reduce Progress (special rule)",
+		apply: function() { }
+	},
 	RESISTANCE_TO_ABSORBTION: {
 		name: "Replace one Resistance with Absorption",
 		apply: function() {
@@ -273,6 +350,18 @@ const Modifier = {
 		name: "Special Armor (special rule)",
 		apply: function() { }
 	},
+	STRATEGIC_COMMAND: {
+		name: "Strategic Command (unique action)",
+		apply: function() { }
+	},
+	STRONG_ATTACK_IGNORES_RESISTANCE: {
+		name: "Strong Attack Mod: Ignores Resistances",
+		apply: function() { npc.attacks[1].mods.push("Ignores Resistances"); }
+	},
+	STRONG_ATTACK_ON_STATUS_CLEARS_SPELL: {
+		name: "Strong Attack Mod: Hit target with (Status) clears one spell with duration of Scene",
+		apply: function() { npc.attacks[1].mods.push("Hit target with (Status) clears one spell with duration of Scene"); }
+	},
 	STRONG_ATTACK_RANGED: {
 		name: "Strong Attack Mod: Becomes ranged, uses [DEX + MIG], Targets suffer (Status)",
 		apply: function() { 
@@ -291,10 +380,18 @@ const Modifier = {
 		name: "Target Lock (unique action)",
 		apply: function() {}
 	},
+	UNWAVERING_SUPPORT: {
+		name: "Unwavering Support (special rule)",
+		apply: function() {}
+	},
 	VENGEFUL_ATTACK: {
 		name: "Vengeful Attack (special rule)",
 		apply: function() { }
 	},	
+	VULNERABILITY_BLOCK: {
+		name: "Vulnerability Block (special rule)",
+		apply: function() { }
+	},
 	//------------------------
 	BREATH_SPELL: {
 		name: "Learn the Breath spell and add +10 MP",

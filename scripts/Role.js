@@ -18,5 +18,13 @@ const Role = {
 	SABOTEUR: {
 		name: "Saboteur",
 		type: new Saboteur()
+	},
+	SENTINEL: {
+		name: "Sentinel",
+		type: new Sentinel()
+	},
+	SUPPORT: {
+		name: "Support",
+		type: new Support()
 	}
 }

@@ -13,8 +13,24 @@ const Spell = {
 		name: "Area Status",
 		apply: function() {}
 	},
+	AURA: {
+		name: "Aura",
+		apply: function() {}
+	},
+	AWAKEN: {
+		name: "Awaken",
+		apply: function() {}		
+	},
+	BARRIER: {
+		name: "Barrier",
+		apply: function() {}
+	},
 	BREATH: {
 		name: "Breath",
+		apply: function() {}
+	},
+	CLEANSE: {
+		name: "Cleanse",
 		apply: function() {}
 	},
 	CURSED_BREATH: {
@@ -37,6 +53,10 @@ const Spell = {
 		name: "Drain Spirit",
 		apply: function() {}
 	},
+	ELEMENTAL_SHROUD: {
+		name: "Elemental Shroud",
+		apply: function() {}
+	},	
 	ENRAGE: {
 		name: "Enrage",
 		apply: function() {}
@@ -52,9 +72,17 @@ const Spell = {
 	HALLUCINATION: {
 		name: "Hallucination",
 		apply: function() {}
-	},	
+	},
+	HEAL: {
+		name: "Heal",
+		apply: function() {}		
+	},
 	IGNIS: {
 		name: "Ignis",
+		apply: function() {}
+	},
+	LICK_WOUNDS: {
+		name: "Lick Wounds",
 		apply: function() {}
 	},
 	LIFE_THEFT: {
@@ -69,12 +97,24 @@ const Spell = {
 		name: "Mind Theft",
 		apply: function() {}
 	},
+	MIRROR: {
+		name: "Mirror",
+		apply: function() {}
+	},	
 	POISON: {
 		name: "Poison",
 		apply: function() {}
 	},
+	QUICKEN: {
+		name: "Quicken",
+		apply: function() {}
+	},	
 	RAGE: {
 		name: "Rage",
+		apply: function() {}
+	},
+	SHELL: {
+		name: "Shell",
 		apply: function() {}
 	},
 	TERRA: {
@@ -95,6 +135,10 @@ const Spell = {
 	},
 	VENTUS: {
 		name: "Ventus",
+		apply: function() {}
+	},
+	WAR_CRY: {
+		name: "War Cry",
 		apply: function() {}
 	},
 	WEAKEN: {

@@ -41,6 +41,7 @@ class Mage {
 	}
 	
 	apply() {
+		npc.spellNote = "Magic Check is [INS + WLP]"
 		npc.def += 1;
 		npc.mdef += 2;
 		npc.maxSpells += 2; 

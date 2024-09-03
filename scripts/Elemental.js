@@ -14,7 +14,18 @@ class Elemental {
 	apply() {
 		npc.strongAffinityNotes.push("Immunity to <b>poison</b>");
 		npc.strongAffinityNotes.push("Immunity to <b>another</b> damage type");
-		npc.poison = "IM";
+		npc.poison = "im";
+		npc.enabled = {
+			physical: true,
+			air: true,
+			bolt: true,
+			dark: true,
+			earth: true,
+			fire: true,
+			ice: true,
+			light: true,
+			poison: false
+		};
 		
 		npc.statusNotes.push("Immunity to the <b>poisoned</b> status");
 		

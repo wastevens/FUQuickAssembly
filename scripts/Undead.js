@@ -15,9 +15,20 @@ class Undead {
 		npc.weakAffinityNotes.push("Vulnerability to <b>Light</b>");
 		npc.strongAffinityNotes.push("Immunity to <b>Dark</b>");
 		npc.strongAffinityNotes.push("Immunity to <b>Poison</b>");
-		npc.light = "VU";
-		npc.dark = "IM";
-		npc.poison = "IM";
+		npc.light = "vu";
+		npc.dark = "im";
+		npc.poison = "im";
+		npc.enabled = {
+			physical: true,
+			air: true,
+			bolt: true,
+			dark: false,
+			earth: true,
+			fire: true,
+			ice: true,
+			light: false,
+			poison: false
+		};
 		
 		npc.statusNotes.push("Immunity to the <b>poisoned</b> status");
 		npc.statusNotes.push("Can be harmed by effects that restore Hit Points");

@@ -15,8 +15,20 @@ class Construct {
 	apply() {
 		npc.strongAffinityNotes.push("Resistant to <b>Earth</b>");
 		npc.strongAffinityNotes.push("Immunity to <b>poison</b>");
-		npc.earth = "RS";
-		npc.poison = "IM";
+		npc.earth = "rs";
+		npc.poison = "im";
+		npc.enabled = {
+			physical: true,
+			air: true,
+			bolt: true,
+			dark: true,
+			earth: false,
+			fire: true,
+			ice: true,
+			light: true,
+			poison: false
+		};
+		
 		
 		npc.statusNotes.push("Immunity to the <b>poisoned</b> status");
 		

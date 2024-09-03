@@ -9,15 +9,45 @@ function updateDisplay() {
 	$("#def").text("+" + npc.def);
 	$("#mdef").text("+" + npc.mdef);
 	
-	$("#physical").text(npc.physical);
-	$("#air").text(npc.air);
-	$("#bolt").text(npc.bolt);
-	$("#dark").text(npc.dark);
-	$("#earth").text(npc.earth);
-	$("#fire").text(npc.fire);
-	$("#ice").text(npc.ice);
-	$("#light").text(npc.light);
-	$("#poison").text(npc.poison);
+	updateAffinityDisplay();
+	
+	$("div.physical").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.air").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.bolt").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.dark").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.earth").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.fire").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.ice").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.light").removeClass("bg-secondary-subtle").removeClass("disabled");
+	$("div.poison").removeClass("bg-secondary-subtle").removeClass("disabled");
+	
+	if(!npc.enabled.physical) {
+		$("div.physical").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.air) {
+		$("div.air").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.bolt) {
+		$("div.bolt").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.dark) {
+		$("div.dark").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.earth) {
+		$("div.earth").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.fire) {
+		$("div.fire").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.ice) {
+		$("div.ice").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.light) {
+		$("div.light").addClass("bg-secondary-subtle").addClass("disabled");
+	}
+	if(!npc.enabled.poison) {
+		$("div.poison").addClass("bg-secondary-subtle").addClass("disabled");
+	}
 	
 	$("#statusNotes").text("").append(npc.statusNotes.join("<br>"));
 	
@@ -48,6 +78,18 @@ function updateDisplay() {
 	$("div.fixedSpell").remove();
 	npc.fixedSpells.forEach(s => addFixed(s, "fixedSpell", "spells"));
 }	
+
+function updateAffinityDisplay() {
+	$("#physical").text(npc.physical.toUpperCase());
+	$("#air").text(npc.air.toUpperCase());
+	$("#bolt").text(npc.bolt.toUpperCase());
+	$("#dark").text(npc.dark.toUpperCase());
+	$("#earth").text(npc.earth.toUpperCase());
+	$("#fire").text(npc.fire.toUpperCase());
+	$("#ice").text(npc.ice.toUpperCase());
+	$("#light").text(npc.light.toUpperCase());
+	$("#poison").text(npc.poison.toUpperCase());
+}
 
 function updateSelections(source, collection, maxCount, rowClass, containerId) {
 	let currentCount = $("div." + rowClass).length;

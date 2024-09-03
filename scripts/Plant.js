@@ -15,6 +15,17 @@ class Plant {
 	apply() {
 		npc.weakAffinityNotes.push("Vulnerability to one of <b>(Air, Bolt, Fire, Ice)</b>");
 		npc.statusNotes.push("Immunity to the <b>dazed, enraged, shaken</b> status");
+		npc.enabled = {
+			physical: true,
+			air: true,
+			bolt: true,
+			dark: true,
+			earth: true,
+			fire: true,
+			ice: true,
+			light: true,
+			poison: true
+		};
 		
 		npc.maxSpeciesSkills += 1;
 	}

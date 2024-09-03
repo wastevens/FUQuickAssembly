@@ -1,3 +1,10 @@
+class Mod {
+	constructor(name, effect) {
+		this.name = name;
+		this.effect = effect;
+	}
+}
+
 const Modifier = {
 	NOOP_CUSTOMIZATION: {
 		name: "Select a Customization",
@@ -73,43 +80,63 @@ const Modifier = {
 	},
 	ADVISE: {
 		name: "Advise (unique action)",
-		apply: function() {}		
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}		
 	},
 	AMBUSH: {
 		name: "Ambush (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	AVENGE: {
 		name: "Avenge (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},	
 	BARRICADE: {
 		name: "Barricade (unique action)",
-		apply: function() {}
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}
 	},	
 	COLLAPSE: {
 		name: "Collapse (special rule) (Elites & Champions only)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod("Collapse (special rule)", ""));
+		}
 	},
 	COLLATERAL_DAMAGE: {
 		name: "Collateral Damage (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	CONTEXT_BONUS: {
 		name: "+3 bonus to Opposed checks in favorable contexts",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod("Contextual Bonus", "+3 bonus to Opposed checks in favorable contexts"));
+		}
 	},
 	COVER: {
 		name: "Cover (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	CRUEL_HYPNOSIS: {
 		name: "Cruel Hypnosis (unique action)",
-		apply: function() { }
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}
 	},	
 	CRUSH: {
 		name: "Crush (unique action)",
-		apply: function() { }
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}
 	},
 	DARK_IMMUNITY_TO_ABSORBTION: {
 		name: "Replace Dark Immunity with Absorption",
@@ -120,59 +147,87 @@ const Modifier = {
 	},
 	DEADLY_COUNTER: {
 		name: "Deadly Counter (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	DIE_HARD: {
 		name: "Die Hard (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	ELEMENT_DRAIN: {
 		name: "Element Drain (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	ELEMENT_SHIFT: {
 		name: "Element Shift (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	EMERGENCY_CAMO: {
 		name: "Emergency Camouflage (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	ENHANCING_GUARD: {
 		name: "Enhancing Guard (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	ENTANGLE: {
 		name: "Entangle (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	EXHAUSTING_COMPROMISE: {
 		name: "Exhausting Compromise (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	FALSE_SENSE_OF_SECURITY: {
 		name: "False Sense of Security (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	FOLLOW_UP_ATTACK: {
 		name: "Follow-up Attack (special rule)",
-		apply: function() {}		
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}	
 	},
 	FLYING: {
-		name: "Flying (pg 307 of Core Rulebook)",
-		apply: function() {  }
+		name: "Flying (special rule)",
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	HEALING_AURA: {
 		name: "Healing Aura (special rule)",
-		apply: function() {  }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},	
 	HINDERING_SPECIALIST: {
 		name: "Hindering Specialist (special rule)",
-		apply: function() {  }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	HUNTERS_BAIT: {
 		name: "Hunter's Bait (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	IMMUNE_AFFINITY: {
 		name: "Immune to one damage type",
@@ -190,6 +245,17 @@ const Modifier = {
 		name: "Replace one Immunity with Absorption",
 		apply: function() { 
 			npc.strongAffinityNotes.push("Replace one Immunity with Absorption");
+			npc.enabled = {
+				physical: true,
+				air: true,
+				bolt: true,
+				dark: true,
+				earth: true,
+				fire: true,
+				ice: true,
+				light: true,
+				poison: true
+			};			
 		}
 	},
 	IMMUNITY_TWO_STATUS: {
@@ -230,19 +296,27 @@ const Modifier = {
 	},
 	INSPIRE: {
 		name: "Inspire (unique action)",
-		apply: function() {}		
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}
 	},	
 	INTERCEPT: {
 		name: "Intercept (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	MAGICAL_MASTERY: {
 		name: "Magical Mastery (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	MP_BATTERY: {
 		name: "MP Battery (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},	
 	NORMAL_ATTACK_BONUS_VS_CONDITION: {
 		name: "Normal Attack Mod: deals 5 extra damage against targets who are (condition)",
@@ -298,61 +372,98 @@ const Modifier = {
 	},
 	ONE_LAST_COMMAND: {
 		name: "One Last Command (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	OPPORTUNIST: {
 		name: "Opportunist (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	OVERWHELM: {
 		name: "Overwhelm (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	PARTING_GIFT: {
 		name: "Parting Gift (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	REASSURING_AURA: {
 		name: "Reassuring Aura (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	REASSURING_LEADERSHIP: {
 		name: "Reassuring Leadership (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},	
 	REDUCE_PROGRESS: {
 		name: "Reduce Progress (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	RESISTANCE_TO_ABSORBTION: {
 		name: "Replace one Resistance with Absorption",
 		apply: function() {
 			npc.strongAffinityNotes.push("Replace one Resistance with Absorption");
+			npc.enabled = {
+				physical: true,
+				air: true,
+				bolt: true,
+				dark: true,
+				earth: true,
+				fire: true,
+				ice: true,
+				light: true,
+				poison: true
+			};			
 		}
 	},
 	SECRET_TECHNIQUE: {
 		name: "Secret Technique (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	SHADOW_OF_DOUBT: {
 		name: "Shadow of Doubt (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},	
 	SORE_LOSER: {
 		name: "Sore Loser (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	SOUL_BURST: {
 		name: "Soul Burst (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},	
 	SPECIAL_ARMOR: {
 		name: "Special Armor (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	STRATEGIC_COMMAND: {
 		name: "Strategic Command (unique action)",
-		apply: function() { }
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}
 	},
 	STRONG_ATTACK_IGNORES_RESISTANCE: {
 		name: "Strong Attack Mod: Ignores Resistances",
@@ -374,23 +485,39 @@ const Modifier = {
 	},
 	SYPHON_MIND: {
 		name: "Syphon Mind (unique action)",
-		apply: function() {}
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}
 	},
 	TARGET_LOCK: {
 		name: "Target Lock (unique action)",
-		apply: function() {}
+		apply: function() {
+			npc.actions.push(new Mod(this.name, ""));
+		}
+	},
+	THORNS: {
+		name: "Thorns (Special Rule)",
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	UNWAVERING_SUPPORT: {
 		name: "Unwavering Support (special rule)",
-		apply: function() {}
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	VENGEFUL_ATTACK: {
 		name: "Vengeful Attack (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},	
 	VULNERABILITY_BLOCK: {
 		name: "Vulnerability Block (special rule)",
-		apply: function() { }
+		apply: function() {
+			npc.notes.push(new Mod(this.name, ""));
+		}
 	},
 	//------------------------
 	BREATH_SPELL: {
@@ -405,11 +532,6 @@ const Modifier = {
 		apply: function() { 
 			npc.fixedSpells.push("Poison");
 			npc.bonusMp += 10;
-		}
-	},
-	THORNS: {
-		name: "Thorns (Special Rule)",
-		apply: function() { 
 		}
 	},
 	WEAKEN_SPELL: {

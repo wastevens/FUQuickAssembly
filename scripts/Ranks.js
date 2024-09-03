@@ -11,6 +11,14 @@ class Soldier {
 	apply() {
 		npc.maxCustomizations++;
 	}
+	
+	display() {
+		return "Soldier";
+	}
+	
+	fabulatorExport() {
+		return "soldier";
+	}
 }
 
 class Elite {
@@ -21,6 +29,14 @@ class Elite {
 		npc.maxCustomizations++;
 		npc.maxRoleSkills++;
 		npc.hp *= 2;
+	}
+	
+	display() {
+		return "Elite";
+	}
+	
+	fabulatorExport() {
+		return "elite";
 	}
 }
 
@@ -33,6 +49,14 @@ class Champion {
 		npc.maxRoleSkills += this.x;
 		npc.hp *= this.x;
 		npc.mp *= 2;
+	}
+	
+	display() {
+		return "Champion (" + this.x + ")";
+	}
+	
+	fabulatorExport() {
+		return "champion" + this.x;
 	}
 }
 

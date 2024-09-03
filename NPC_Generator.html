@@ -145,7 +145,7 @@
 				<div class="col-9">
 					<div class="container">
 						<div class="row">
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled physical" onclick=rotateAffinity("physical")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Pp.svg" style="height:24px;"></div>
@@ -153,15 +153,15 @@
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled air" onclick=rotateAffinity("air")>
 								<div class="container">
-									<div class="row">
+									<div class="row" >
 										<div class="col p-0"><img src="fabuicons/Aa.svg" style="height:24px;"></div>
 										<div class="col" id="air"></div>
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled bolt" onclick=rotateAffinity("bolt")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Bb.svg" style="height:24px;"></div>
@@ -169,7 +169,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled dark" onclick=rotateAffinity("dark")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Dd.svg" style="height:24px;"></div>
@@ -177,7 +177,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled earth" onclick=rotateAffinity("earth")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Ee.svg" style="height:24px;"></div>
@@ -185,7 +185,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled fire" onclick=rotateAffinity("fire")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Ff.svg" style="height:24px;"></div>
@@ -193,7 +193,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled ice" onclick=rotateAffinity("ice")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Ii.svg" style="height:24px;"></div>
@@ -201,7 +201,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled light" onclick=rotateAffinity("light")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Ll.svg" style="height:24px;"></div>
@@ -209,7 +209,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col border">
+							<div class="col border bg-secondary-subtle disabled poison" onclick=rotateAffinity("poison")>
 								<div class="container">
 									<div class="row">
 										<div class="col p-0"><img src="fabuicons/Tt.svg" style="height:24px;"></div>
@@ -333,6 +333,30 @@ function update() {
 	npc.role = Role[$("#role").val()].type;
 	npc.update();
 	updateDisplay();
+}
+
+function rotateAffinity(affinity) {
+	if(!npc.enabled[affinity]) {
+		return;
+	}
+	switch(npc[affinity]) {
+		case "": 
+			npc[affinity] = "vu"; 
+			break;
+		case "vu": 
+			npc[affinity] = "rs"; 
+			break;
+		case "rs": 
+			npc[affinity] = "im"; 
+			break;
+		case "im": 
+			npc[affinity] = "ab"; 
+			break;
+		case "ab": 
+			npc[affinity] = ""; 
+			break;
+	}
+	updateAffinityDisplay();
 }
 
 $(document).ready(function() {

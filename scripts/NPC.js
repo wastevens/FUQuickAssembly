@@ -28,6 +28,18 @@ class NPC {
 		this.light = "";
 		this.poison = "";
 		
+		this.enabled = {
+			physical: false,
+			air: false,
+			bolt: false,
+			dark: false,
+			earth: false,
+			fire: false,
+			ice: false,
+			light: false,
+			poison: false
+		};
+		
 		this.weakAffinityNotes = [];
 		this.strongAffinityNotes = [];
 		this.attacks = [];
@@ -48,6 +60,9 @@ class NPC {
 		this.customizations = [];
 		
 		this.statusNotes = [];
+		
+		this.actions = [];
+		this.notes = [];
 	}
 	
 	update() {
@@ -90,5 +105,44 @@ class NPC {
 	deriveHPandMP() {
 		this.hp += (this.mig ? (5 * this.mig) : 0) + (this.level ? (2 * this.level) : 0) + this.bonusHp;
 		this.mp += (this.wlp ? (5 * this.wlp) : 0) + (this.level ? (1 * this.level) : 0) + this.bonusMp;
+	}
+	
+	fabulatorExport() {
+		const m = {}
+		const attributes = {};
+		attributes.dexterity = this.dex;
+		attributes.insight = this.ins;
+		attributes.might = this.mig;
+		attributes.willpower = this.wlp;
+		m.attributes = attributes;
+		
+		const affinities = {};
+		affinities.physical = this.physical;
+		affinities.air = this.air;
+		affinities.bolt = this.bolt;
+		affinities.dark = this.dark;
+		affinities.earth = this.earth;
+		affinities.fire = this.fire;
+		affinities.ice = this.ice;
+		affinities.light = this.light;
+		affinities.poison = this.poison;
+		m.affinities = affinities;
+		
+		const extra = {};
+        extra.mDef = this.mdef;
+		extra.def = this.def;
+		extra.hp = this.bonusHp;
+		extra.mp = this.bonusMp;
+		m.extra = extra;
+		
+		m.actions = this.actions;
+		m.notes = this.notes;
+		
+		m.name = "Lvl " + this.level + " " + this.rank.display() + " " + this.species.constructor.name  + " " + this.role.constructor.name;
+		m.lvl = this.level;
+		m.rank = this.rank.fabulatorExport();
+		m.species = this.species.constructor.name;
+		
+		return m;
 	}
 }

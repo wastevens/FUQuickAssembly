@@ -13,6 +13,17 @@ class Beast {
 	
 	apply() {
 		npc.maxSpeciesSkills += 2;
+		npc.enabled = {
+			physical: true,
+			air: true,
+			bolt: true,
+			dark: true,
+			earth: true,
+			fire: true,
+			ice: true,
+			light: true,
+			poison: true
+		};
 	}
 	
 	skills() {

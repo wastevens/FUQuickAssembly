@@ -14,6 +14,17 @@ class Demon {
 	apply() {
 		Modifier.ADD_TWO_RESISTANCE.apply();
 		npc.maxSpeciesSkills += 1;
+		npc.enabled = {
+			physical: true,
+			air: true,
+			bolt: true,
+			dark: true,
+			earth: true,
+			fire: true,
+			ice: true,
+			light: true,
+			poison: true
+		};
 	}
 	
 	skills() {

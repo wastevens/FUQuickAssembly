@@ -17,6 +17,8 @@ class NPC {
 	
 		this.def = 0;
 		this.mdef = 0;
+		this.precision = false;
+		this.magic = false;
 	
 		this.physical = "";
 		this.air = "";
@@ -48,6 +50,7 @@ class NPC {
 		this.maxSpells = 0;
 		this.spells = [];
 		this.fixedSpells = [];
+		this.exportSpells = [];
 		
 		this.speciesSkillNote = "";
 		this.maxSpeciesSkills = 0;
@@ -62,7 +65,7 @@ class NPC {
 		this.statusNotes = [];
 		
 		this.actions = [];
-		this.notes = [];
+		this.specials = [];
 	}
 	
 	update() {
@@ -113,7 +116,7 @@ class NPC {
 		attributes.dexterity = this.dex;
 		attributes.insight = this.ins;
 		attributes.might = this.mig;
-		attributes.willpower = this.wlp;
+		attributes.will = this.wlp;
 		m.attributes = attributes;
 		
 		const affinities = {};
@@ -133,16 +136,21 @@ class NPC {
 		extra.def = this.def;
 		extra.hp = this.bonusHp;
 		extra.mp = this.bonusMp;
+		extra.precision = this.precision;
+		extra.magic = this.magic;
 		m.extra = extra;
 		
 		m.actions = this.actions;
-		m.notes = this.notes;
+		m.specials = this.specials;
+		m.attacks = this.attacks.map(a => a.fabulatorExport());
+		m.spells = this.exportSpells;
 		
 		m.name = "Lvl " + this.level + " " + this.rank.display() + " " + this.species.constructor.name  + " " + this.role.constructor.name;
 		m.lvl = this.level;
 		m.rank = this.rank.fabulatorExport();
 		m.species = this.species.constructor.name;
-		
+		m.dataType = "npc";
+		m.language = "en";
 		return m;
 	}
 }

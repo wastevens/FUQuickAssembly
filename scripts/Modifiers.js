@@ -87,13 +87,13 @@ const Modifier = {
 	AMBUSH: {
 		name: "Ambush (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	AVENGE: {
 		name: "Avenge (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},	
 	BARRICADE: {
@@ -105,25 +105,25 @@ const Modifier = {
 	COLLAPSE: {
 		name: "Collapse (special rule) (Elites & Champions only)",
 		apply: function() {
-			npc.notes.push(new Mod("Collapse (special rule)", ""));
+			npc.specials.push(new Mod("Collapse (special rule)", ""));
 		}
 	},
 	COLLATERAL_DAMAGE: {
 		name: "Collateral Damage (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	CONTEXT_BONUS: {
 		name: "+3 bonus to Opposed checks in favorable contexts",
 		apply: function() {
-			npc.notes.push(new Mod("Contextual Bonus", "+3 bonus to Opposed checks in favorable contexts"));
+			npc.specials.push(new Mod("Contextual Bonus", "+3 bonus to Opposed checks in favorable contexts"));
 		}
 	},
 	COVER: {
 		name: "Cover (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	CRUEL_HYPNOSIS: {
@@ -148,85 +148,85 @@ const Modifier = {
 	DEADLY_COUNTER: {
 		name: "Deadly Counter (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	DIE_HARD: {
 		name: "Die Hard (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	ELEMENT_DRAIN: {
 		name: "Element Drain (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	ELEMENT_SHIFT: {
 		name: "Element Shift (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	EMERGENCY_CAMO: {
 		name: "Emergency Camouflage (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	ENHANCING_GUARD: {
 		name: "Enhancing Guard (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	ENTANGLE: {
 		name: "Entangle (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	EXHAUSTING_COMPROMISE: {
 		name: "Exhausting Compromise (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	FALSE_SENSE_OF_SECURITY: {
 		name: "False Sense of Security (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	FOLLOW_UP_ATTACK: {
 		name: "Follow-up Attack (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}	
 	},
 	FLYING: {
 		name: "Flying (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	HEALING_AURA: {
 		name: "Healing Aura (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},	
 	HINDERING_SPECIALIST: {
 		name: "Hindering Specialist (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	HUNTERS_BAIT: {
 		name: "Hunter's Bait (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	IMMUNE_AFFINITY: {
@@ -277,7 +277,7 @@ const Modifier = {
 	INCREASE_ACCURACY: {
 		name: "+3 Accuracy",
 		apply: function() { 
-			npc.attacks.forEach(a => a.accuracy += 3);
+			npc.precision = true;
 		}
 	},	
 	INCREASE_DEFENSE: {
@@ -303,19 +303,19 @@ const Modifier = {
 	INTERCEPT: {
 		name: "Intercept (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	MAGICAL_MASTERY: {
 		name: "Magical Mastery (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	MP_BATTERY: {
 		name: "MP Battery (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},	
 	NORMAL_ATTACK_BONUS_VS_CONDITION: {
@@ -373,43 +373,43 @@ const Modifier = {
 	ONE_LAST_COMMAND: {
 		name: "One Last Command (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	OPPORTUNIST: {
 		name: "Opportunist (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	OVERWHELM: {
 		name: "Overwhelm (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	PARTING_GIFT: {
 		name: "Parting Gift (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	REASSURING_AURA: {
 		name: "Reassuring Aura (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	REASSURING_LEADERSHIP: {
 		name: "Reassuring Leadership (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},	
 	REDUCE_PROGRESS: {
 		name: "Reduce Progress (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	RESISTANCE_TO_ABSORBTION: {
@@ -432,31 +432,31 @@ const Modifier = {
 	SECRET_TECHNIQUE: {
 		name: "Secret Technique (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	SHADOW_OF_DOUBT: {
 		name: "Shadow of Doubt (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},	
 	SORE_LOSER: {
 		name: "Sore Loser (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	SOUL_BURST: {
 		name: "Soul Burst (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},	
 	SPECIAL_ARMOR: {
 		name: "Special Armor (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	STRATEGIC_COMMAND: {
@@ -498,47 +498,50 @@ const Modifier = {
 	THORNS: {
 		name: "Thorns (Special Rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	UNWAVERING_SUPPORT: {
 		name: "Unwavering Support (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	VENGEFUL_ATTACK: {
 		name: "Vengeful Attack (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},	
 	VULNERABILITY_BLOCK: {
 		name: "Vulnerability Block (special rule)",
 		apply: function() {
-			npc.notes.push(new Mod(this.name, ""));
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	//------------------------
 	BREATH_SPELL: {
 		name: "Learn the Breath spell and add +10 MP",
-		apply: function() { 
-			npc.fixedSpells.push("Breath");
+		apply: function() {
+			npc.fixedSpells.push(Spell.BREATH.name);
 			npc.bonusMp += 10;
+			Spell.BREATH.apply();
 		}
 	},
 	POISON_SPELL: {
 		name: "Learn the Poison spell and add +10 MP",
-		apply: function() { 
-			npc.fixedSpells.push("Poison");
+		apply: function() {
+			npc.fixedSpells.push(Spell.POISON.name);
 			npc.bonusMp += 10;
+			Spell.POISON.apply();
 		}
 	},
 	WEAKEN_SPELL: {
 		name: "Learn the Weaken spell and add +10 MP",
 		apply: function() { 
-			npc.fixedSpells.push("Weaken");
+			npc.fixedSpells.push(Spell.WEAKEN.name);
 			npc.bonusMp += 10;
+			Spell.WEAKEN.apply();
 		}
 	}
 }

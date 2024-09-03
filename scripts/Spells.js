@@ -1,3 +1,16 @@
+class ExportSpell {
+	constructor(name) {
+		this.name = name;
+		this.type = "";
+		this.range = "melee";
+		this.special = [];
+		this.attr1 = "dexterity";
+		this.attr2 = "dexterity";
+		this.itemType = "spell";
+		this.damagetype = "physical";
+	}
+}
+
 const Spell = {
 	NOOP_SPELL: {
 		name: "Select a Spell",
@@ -11,138 +24,206 @@ const Spell = {
 	},
 	AREA_STATUS: {
 		name: "Area Status",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	AURA: {
 		name: "Aura",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	AWAKEN: {
 		name: "Awaken",
-		apply: function() {}		
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}		
 	},
 	BARRIER: {
 		name: "Barrier",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	BREATH: {
 		name: "Breath",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	CLEANSE: {
 		name: "Cleanse",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	CURSED_BREATH: {
 		name: "Cursed Breath",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	CURSE_XL: {
 		name: "Curse XL",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	DEVESTATION: {
 		name: "Devestation (Must be Lvl 30+)",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell("Devestation"));
+		}
 	},	
 	DISPEL: {
 		name: "Dispel",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	DRAIN_SPIRIT: {
 		name: "Drain Spirit",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	ELEMENTAL_SHROUD: {
 		name: "Elemental Shroud",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},	
 	ENRAGE: {
 		name: "Enrage",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	FLARE: {
 		name: "Flare (Must be Lvl 30+)",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell("Flare"));
+		}
 	},
 	GLACIES: {
 		name: "Glacias (Must be Lvl 30+)",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell("Glacies"));
+		}
 	},
 	HALLUCINATION: {
 		name: "Hallucination",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	HEAL: {
 		name: "Heal",
-		apply: function() {}		
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}		
 	},
 	IGNIS: {
 		name: "Ignis",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	LICK_WOUNDS: {
 		name: "Lick Wounds",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	LIFE_THEFT: {
 		name: "Life Theft",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	LUX: {
 		name: "Lux",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	MIND_THEFT: {
 		name: "Mind Theft",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	MIRROR: {
 		name: "Mirror",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},	
 	POISON: {
 		name: "Poison",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	QUICKEN: {
 		name: "Quicken",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},	
 	RAGE: {
 		name: "Rage",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	SHELL: {
 		name: "Shell",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	TERRA: {
 		name: "Terra",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	THUNDERBOLT: {
 		name: "Thunderbolt (Must be Lvl 30+)",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell("Thunderbolt"));
+		}
 	},
 	TORPOR: {
 		name: "Torpor",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	UMBRA: {
 		name: "Umbra",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	VENTUS: {
 		name: "Ventus",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	WAR_CRY: {
 		name: "War Cry",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	WEAKEN: {
 		name: "Weaken",
-		apply: function() {}
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	}
 }

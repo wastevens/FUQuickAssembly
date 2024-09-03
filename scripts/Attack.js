@@ -12,6 +12,35 @@ class Attack {
 		this.mods = [];
 	}
 	
+	_attrName(attr) {
+		switch(attr.toUpperCase()) {
+			case("DEX"):
+				return "dexterity";
+			case("INS"):
+				return "insight";
+			case("MIG"):
+				return "might";
+			case("WLP"):
+				return "willpower";
+		}
+		return "???";
+	}
+	
+	fabulatorExport() {
+		const m = {}
+		m.name = this.name;
+		m.extraDamage = this.extraDamage;
+		m.special = this.mods;
+		
+		m.itemType = "basic";
+		m.type = "nodmg";
+		m.attr1 = this._attrName(this.attr1);
+		m.attr2 = this._attrName(this.attr2);
+		m.range = this.ranged ? "distance" : "melee";
+		
+		return m;
+	}
+	
 	display() {
 		const attackRow = $("<div>").addClass("row").addClass("attack");
 		
@@ -26,10 +55,10 @@ class Attack {
 			glyphDiv.append(rangedGlyph);
 		}
 			
-		
 		const basicDiv = $("<div>").addClass("col-5");
 		const nameSpan = $("<span>").append(this.name);
-		const accuracySpan = $("<span>").append("<b>[" + this.attr1 + " + " + this.attr2 + "]" + (this.accuracy != 0 ? " + " + this.accuracy : ""));
+		const accuracy = (this.accuracy ? this.accuracy : 0) + (npc.precision ? 3 : 0);
+		const accuracySpan = $("<span>").append("<b>[" + this.attr1 + " + " + this.attr2 + "]" + (accuracy ? " + " + accuracy : ""));
 		const dmgSpan = $("<span>").append("<b>[HR + " + (this.damage + (this.extraDamage ? 5 : 0)) +"]</b> (Type) damage");
 		basicDiv.append(nameSpan).append(this._spaceSpan()).append(accuracySpan).append(this._spaceSpan()).append(dmgSpan);
 		

@@ -63,7 +63,7 @@ class Brute {
 		attack1.accuracy = accuracyBonus;
 		attack1.damage = 5 + damageBonus;
 		attack1.extraDamage = false;
-		attack1.mods = ["<b>Multi(2)</b>"];
+		attack1.mods = ["**Multi(2)**"];
 		npc.attacks.push(attack1);
 		
 		const attack2 = new Attack();

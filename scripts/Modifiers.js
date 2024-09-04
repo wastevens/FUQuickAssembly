@@ -239,7 +239,7 @@ const Modifier = {
 	},
 	IMMUNE_SHAKEN_SLOW: {
 		name: "Immune to shaken and slow",
-		apply: function() { npc.statusNotes.push("Immunity to the <b>shaken</b> and <b>slow</b> status effects"); }
+		apply: function() { npc.statusNotes.push("Immunity to the **shaken** and **slow** status effects"); }
 	},
 	IMMUNITY_TO_ABSORBTION: {
 		name: "Replace one Immunity with Absorption",
@@ -261,13 +261,13 @@ const Modifier = {
 	IMMUNITY_TWO_STATUS: {
 		name: "Immunity to two status effects",
 		apply: function() { 
-			npc.statusNotes.push("Immunity to <b>two</b> status effects");
+			npc.statusNotes.push("Immunity to **two** status effects");
 		}
 	},
 	IMMUNITY_TWO_MAGE_STATUS: {
 		name: "Immunity to (chose two: dazed, enraged, poisoned, shaken)",
 		apply: function() { 
-			npc.statusNotes.push("Immunity to <b>(chose two: dazed, enraged, poisoned, shaken)</b>");
+			npc.statusNotes.push("Immunity to **(chose two: dazed, enraged, poisoned, shaken)**");
 		}
 	},
 	IMPROVED_AVENGE: {

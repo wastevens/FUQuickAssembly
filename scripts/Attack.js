@@ -21,7 +21,7 @@ class Attack {
 			case("MIG"):
 				return "might";
 			case("WLP"):
-				return "willpower";
+				return "will";
 		}
 		return "???";
 	}

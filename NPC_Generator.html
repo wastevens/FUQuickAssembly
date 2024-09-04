@@ -311,6 +311,12 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col"><h4>Export to Fabulator</h4></div>
+			</div>
+			<div class="row">
+				<div class="col"><textarea id="export" cols="80" rows="10"></textarea></div>
+			</div>
 		</div>
 	</form>
 	<script>
@@ -322,6 +328,7 @@ function clear() {
 	$(".customization").remove();
 	$(".roleSkill").remove();
 	$(".attack").remove();
+	$("#export").text("");
 }
 
 function update() {

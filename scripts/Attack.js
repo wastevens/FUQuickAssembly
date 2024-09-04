@@ -45,8 +45,8 @@ class Attack {
 		const attackRow = $("<div>").addClass("row").addClass("attack");
 		
 		const glyphDiv = $("<div>").addClass("col-1").addClass("p-0").addClass("text-center");
-		const meleeGlyph = $("<img>").attr("src", "glyphs/m-109.svg").css("height", "24px");
-		const rangedGlyph = $("<img>").attr("src", "glyphs/r-114.svg").css("height", "24px");
+		const meleeGlyph = $("<img>").attr("src", "https://thousandmazypaths.neocities.org/FUQuickGen/glyphs/m-109.svg").css("height", "24px");
+		const rangedGlyph = $("<img>").attr("src", "https://thousandmazypaths.neocities.org/FUQuickGen/glyphs/r-114.svg").css("height", "24px");
 		if(this.isMelee && this.isRanged) {
 			glyphDiv.append(meleeGlyph).append(" or ").append(rangedGlyph);
 		} else if(this.isMelee) {
@@ -76,6 +76,6 @@ class Attack {
 	}
 	
 	_spaceSpan() {
-		return $("<span>").addClass("p-0").append(" ").append($("<img>").attr("src", "glyphs/w-119.svg").css("height", "12px")).append(" ");
+		return $("<span>").addClass("p-0").append(" ").append($("<img>").attr("src", "https://thousandmazypaths.neocities.org/FUQuickGen/glyphs/w-119.svg").css("height", "12px")).append(" ");
 	}
 }

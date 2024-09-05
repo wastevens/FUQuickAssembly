@@ -1,21 +1,21 @@
 const SentinelCustomizations = {
 	NOOP_CUSTOMIZATION: Modifier.NOOP_CUSTOMIZATION,
 	ADD_TWO_RESISTANCE: Modifier.ADD_TWO_RESISTANCE,
-	COVER: Modifier.COVER,
 	INTERCEPT: Modifier.INTERCEPT,
+	THREATEN: Modifier.THREATEN,
 	VULNERABILITY_BLOCK: Modifier.VULNERABILITY_BLOCK,
 	UNWAVERING_SUPPORT: Modifier.UNWAVERING_SUPPORT
 }
 
 const SentinelSkills = {
 	NOOP_SKILL: Modifier.NOOP_SKILL,
-	NORMAL_ATTACK_SOLO_MULTI_2: Modifier.NORMAL_ATTACK_SOLO_MULTI_2,
+	NORMAL_ATTACK_MULTI_2_ELITE_OR_BETTER: Modifier.NORMAL_ATTACK_MULTI_2_ELITE_OR_BETTER,
 	STRONG_ATTACK_ON_STATUS_CLEARS_SPELL: Modifier.STRONG_ATTACK_ON_STATUS_CLEARS_SPELL,
 	ADD_SENTINEL_SPELLS: Modifier.ADD_SENTINEL_SPELLS,
 	BARRICADE: Modifier.BARRICADE,
 	AVENGE: Modifier.AVENGE,
-	IMPROVED_AVENGE: Modifier.IMPROVED_AVENGE,
-	REASSURING_AURA: Modifier.REASSURING_AURA
+	REASSURING_AURA: Modifier.REASSURING_AURA,
+	REDUCE_PROGRESS: Modifier.REDUCE_PROGRESS
 }
 
 const SentinelSpells = {
@@ -80,21 +80,21 @@ class Sentinel {
 		npc.level = level;
 		
 		if(level >= 10) {
-			Modifier.INCREASE_DEFENSE.apply();
+			
 		}
 		if(level >= 20) {
 			npc.mig = 10;
 			npc.maxRoleSkills++;
 		}
 		if(level >= 30) {
-			Modifier.STRONG_ATTACK_IGNORES_RESISTANCE.apply();
+			Modifier.INCREASE_DEFENSE.apply();
 		}
 		if(level >= 40) {
 			npc.wlp = 10;
 			npc.maxRoleSkills++;
 		}
 		if(level >= 50) {
-			Modifier.IMMUNE_AFFINITY_NON_PHYSICAL.apply();
+			Modifier.IMMUNE_SENTINEL_SKILL.apply();
 		}
 		if(level >= 60) {
 			npc.dex = 10;

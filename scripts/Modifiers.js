@@ -284,6 +284,10 @@ const Modifier = {
 		name: "Immune to (choose two: poisoned, shaken, slow)",
 		apply: function() { npc.statusNotes.push("Immunity to **(choose two: poisoned, shaken, slow)**"); }
 	},
+	IMMUNE_SENTINEL_SKILL: {
+		name: "Immune to (choose two: poisoned, shaken, weak)",
+		apply: function() { npc.statusNotes.push("Immunity to **(choose two: poisoned, shaken, weak)**"); }
+	},
 	IMMUNITY_TO_ABSORBTION: {
 		name: "Replace one Immunity with Absorption",
 		apply: function() { 
@@ -399,6 +403,10 @@ const Modifier = {
 	},
 	NORMAL_ATTACK_MULTI_2: {
 		name: "Normal Attack Mod: Multi (2)",
+		apply: function() { npc.attacks[0].mods.push("Multi (2)"); }
+	},
+	NORMAL_ATTACK_MULTI_2_ELITE_OR_BETTER: {
+		name: "Normal Attack Mod: Multi (2) (Elites and Champions only)",
 		apply: function() { npc.attacks[0].mods.push("Multi (2)"); }
 	},
 	NORMAL_ATTACK_OVERLOAD: {
@@ -568,6 +576,12 @@ const Modifier = {
 		name: "Target Lock (unique action)",
 		apply: function() {
 			npc.actions.push(new Mod(this.name, ""));
+		}
+	},
+	THREATEN: {
+		name: "Threaten (Special Rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
 	THORNS: {

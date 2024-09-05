@@ -84,19 +84,22 @@ const Modifier = {
 	ADD_STRONG_ATTACK_SABOTEUR: {
 		name: "Add Strong Attack",
 		apply: function() {
-			const accuracyBonus = Math.floor(npc.level / 10);
-			const damageBonus = Math.floor(accuracyBonus / 2) * 5;
-		
 			const attack = new Attack();
 			attack.isMelee = true;
 			attack.isRanged = true;
-			attack.name = "Strong Attack";
+			attack.name = "Normal Attack";
 			attack.attr1 = "DEX";
 			attack.attr2 = "INS";
-			attack.accuracy = accuracyBonus;
-			attack.damage = 5 + damageBonus;
 			attack.extraDamage = false;
-			attack.mods.push("Target cannot perform (choose one: Attack, Guard, Inventory, Objective, Spell, Skill) during the next turn");
+			attack.mods.push("Choose one or two (last until the end of their next turn)");
+			attack.mods.push("The target cannot recover hit points");
+			attack.mods.push("The target cannot recover mind points");
+			attack.mods.push("The target cannot perform an action of your choice");
+			attack.mods.push("The target cannot perform free attacks");
+			attack.mods.push("The target cannot see this NPC");
+			attack.mods.push("The target cannot see this NPC's allies");
+			attack.mods.push("The target loses all Resistances and Immunities, and cannot gain them");
+			
 			npc.attacks.push(attack);
 		}
 	},
@@ -108,6 +111,12 @@ const Modifier = {
 	},
 	AMBUSH: {
 		name: "Ambush (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
+		}
+	},
+	AURA_OF_UNEASE: {
+		name: "Aura of Unease (special rule)",
 		apply: function() {
 			npc.specials.push(new Mod(this.name, ""));
 		}

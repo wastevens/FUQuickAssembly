@@ -1,6 +1,7 @@
 const SaboteurCustomizations = {
 	NOOP_CUSTOMIZATION: Modifier.NOOP_CUSTOMIZATION,
-	ADD_10_HP: Modifier.ADD_10_HP,
+	ADD_ROLE_SKILL: Modifier.ADD_ROLE_SKILL,
+	AURA_OF_UNEASE: Modifier.AURA_OF_UNEASE,
 	ENTANGLE: Modifier.ENTANGLE,
 	EXHAUSTING_COMPROMISE: Modifier.EXHAUSTING_COMPROMISE,
 	HINDERING_SPECIALIST: Modifier.HINDERING_SPECIALIST,
@@ -11,8 +12,8 @@ const SaboteurSkills = {
 	NOOP_SKILL: Modifier.NOOP_SKILL,
 	NORMAL_ATTACK_MULTI_2: Modifier.NORMAL_ATTACK_MULTI_2,
 	NORMAL_ATTACK_TARGET_MDEF: Modifier.NORMAL_ATTACK_TARGET_MDEF,
-	NORMAL_ATTACK_WITHER: Modifier.NORMAL_ATTACK_WITHER,
 	ADD_STRONG_ATTACK_SABOTEUR: Modifier.ADD_STRONG_ATTACK_SABOTEUR,
+	STRONG_ATTACK_TARGET_MDEF: Modifier.STRONG_ATTACK_TARGET_MDEF,
 	ADD_SABOTEUR_SPELLS: Modifier.ADD_SABOTEUR_SPELLS,
 	CRUEL_HYPNOSIS: Modifier.CRUEL_HYPNOSIS,
 	SECRET_TECHNIQUE: Modifier.SECRET_TECHNIQUE,
@@ -68,7 +69,9 @@ class Saboteur {
 		attack1.attr1 = "DEX";
 		attack1.attr2 = "INS";
 		attack1.extraDamage = false;
-		attack1.mods.push("Each hit target loses 10 MP OR each hit target suffers (Status). If (Status) is Poisoned or Enraged, add a Vulnerability.");
+		attack1.mods.push("Each hit target loses 10 MP");
+		attack1.mods.push("OR"); 
+		attack1.mods.push("Each hit target suffers (Status). If (Status) is Poisoned or Enraged, add a Vulnerability.");
 		npc.attacks.push(attack1);
 		
 		npc.level = level;

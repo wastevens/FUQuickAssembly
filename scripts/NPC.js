@@ -125,7 +125,7 @@ class NPC {
 		
 		const affinities = {};
 		affinities.physical = this.physical;
-		affinities.air = this.air;
+		affinities.wind = this.air;
 		affinities.bolt = this.bolt;
 		affinities.dark = this.dark;
 		affinities.earth = this.earth;

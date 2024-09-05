@@ -82,6 +82,12 @@ const Spell = {
 			npc.exportSpells.push(new ExportSpell(this.name));
 		}
 	},
+	DIVINATION: {
+		name: "Divination",
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
+	},
 	DRAIN_SPIRIT: {
 		name: "Drain Spirit",
 		apply: function() {

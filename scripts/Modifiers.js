@@ -317,9 +317,11 @@ const Modifier = {
 			npc.statusNotes.push("Immunity to **(chose two: dazed, enraged, poisoned, shaken)**");
 		}
 	},
-	IMPROVED_AVENGE: {
-		name: "Improved Avenge (special rule)",
-		apply: function() {}
+	IMPROVED_ADVISE: {
+		name: "Improved Advise (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
+		}
 	},
 	INCREASE_ACCURACY: {
 		name: "+3 Accuracy",

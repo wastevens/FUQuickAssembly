@@ -1,21 +1,22 @@
 const SupportCustomizations = {
 	NOOP_CUSTOMIZATION: Modifier.NOOP_CUSTOMIZATION,
-	ADD_10_HP: Modifier.ADD_10_HP,
+	ADD_ROLE_SKILL: Modifier.ADD_ROLE_SKILL,
 	ADVISE: Modifier.ADVISE,
-	INSPIRE: Modifier.INSPIRE
+	INSPIRE: Modifier.INSPIRE,
+	VULNERABILITY_BLOCK: Modifier.VULNERABILITY_BLOCK
 }
 
 const SupportSkills = {
 	NOOP_SKILL: Modifier.NOOP_SKILL,
 	NORMAL_ATTACK_MULTI_2: Modifier.NORMAL_ATTACK_MULTI_2,
+	NORMAL_ATTACK_TARGET_MDEF: Modifier.NORMAL_ATTACK_TARGET_MDEF,
 	NORMAL_ATTACK_INFLICT_STATUS: Modifier.NORMAL_ATTACK_INFLICT_STATUS,
+	IMPROVED_ADVISE: Modifier.IMPROVED_ADVISE,
 	STRATEGIC_COMMAND: Modifier.STRATEGIC_COMMAND,
 	FOLLOW_UP_ATTACK: Modifier.FOLLOW_UP_ATTACK,
 	HEALING_AURA: Modifier.HEALING_AURA,
 	MP_BATTERY: Modifier.MP_BATTERY,
-	ONE_LAST_COMMAND: Modifier.ONE_LAST_COMMAND,
-	REASSURING_LEADERSHIP: Modifier.REASSURING_LEADERSHIP,
-	VULNERABILITY_BLOCK: Modifier.VULNERABILITY_BLOCK
+	ONE_LAST_COMMAND: Modifier.ONE_LAST_COMMAND
 }
 
 const SupportSpells = {
@@ -24,6 +25,7 @@ const SupportSpells = {
 	AWAKEN: Spell.AWAKEN,
 	BARRIER: Spell.BARRIER,
 	CLEANSE: Spell.CLEANSE,
+	DIVINATION: Spell.DIVINATION,
 	ELEMENTAL_SHROUD: Spell.ELEMENTAL_SHROUD,
 	HEAL: Spell.HEAL,
 	MIRROR: Spell.MIRROR,
@@ -37,15 +39,13 @@ class Support {
 	
 	apply() {
 		npc.dex = 8;
-		npc.ins = 10;
+		npc.ins = 8;
 		npc.mig = 6;
-		npc.wlp = 8;
+		npc.wlp = 10;
 		npc.roleAffinityNotes = [];
 		npc.weakAffinityNotes.push("Add one Vulnerability");
 		
 		npc.spellNote = "Magic Check is [INS + WLP]"
-		npc.def += 1;
-		npc.mdef += 2;
 		npc.maxSpells += 2; 
 	}
 	
@@ -78,7 +78,7 @@ class Support {
 			Modifier.ADD_TWO_RESISTANCE.apply();
 		}
 		if(level >= 20) {
-			npc.wlp = 10;
+			npc.ins = 10;
 			npc.maxRoleSkills++;
 		}
 		if(level >= 30) {
@@ -89,7 +89,7 @@ class Support {
 			npc.maxRoleSkills++;
 		}
 		if(level >= 50) {
-			Modifier.ADD_TWO_RESISTANCE.apply();
+			Modifier.IMMUNE_AFFINITY_NON_PHYSICAL.apply();
 		}
 		if(level >= 60) {
 			npc.ins = 12;

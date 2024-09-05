@@ -178,6 +178,12 @@ const Spell = {
 			npc.exportSpells.push(new ExportSpell(this.name));
 		}
 	},
+	REINFORCE: {
+		name: "Reinforce",
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
+	},
 	SHELL: {
 		name: "Shell",
 		apply: function() {

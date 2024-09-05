@@ -95,7 +95,13 @@ const Modifier = {
 		apply: function() {
 			npc.specials.push(new Mod(this.name, ""));
 		}
-	},	
+	},
+	BAD_TEMPER: {
+		name: "Bad Temper (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
+		}
+	},
 	BARRICADE: {
 		name: "Barricade (unique action)",
 		apply: function() {
@@ -237,9 +243,9 @@ const Modifier = {
 		name: "Immune to one damage type other than physical",
 		apply: function() { npc.strongAffinityNotes.push("Add one Immunity other than physical"); }
 	},
-	IMMUNE_SHAKEN_SLOW: {
-		name: "Immune to shaken and slow",
-		apply: function() { npc.statusNotes.push("Immunity to the **shaken** and **slow** status effects"); }
+	IMMUNE_BRUTE_SKILL: {
+		name: "Immune to (choose two: poisoned, shaken, slow)",
+		apply: function() { npc.statusNotes.push("Immunity to **(choose two: poisoned, shaken, slow)**"); }
 	},
 	IMMUNITY_TO_ABSORBTION: {
 		name: "Replace one Immunity with Absorption",
@@ -459,6 +465,12 @@ const Modifier = {
 			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
+	STEADY_RECOVERY: {
+		name: "Steady Recovery (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
+		}
+	},
 	STRATEGIC_COMMAND: {
 		name: "Strategic Command (unique action)",
 		apply: function() {
@@ -480,7 +492,7 @@ const Modifier = {
 			npc.attacks[1].isRanged = true;
 			npc.attacks[1].attr1 = "DEX";
 			npc.attacks[1].attr2 = "MIG";
-			npc.attacks[1].mods.push("Target suffers (Status)");
+			npc.attacks[1].mods.push("Target suffers **(choose one: dazed, shaken, slow, or weak)**");
 		}
 	},
 	SYPHON_MIND: {

@@ -24,12 +24,16 @@ const MageSpells = {
 	BREATH: Spell.BREATH,
 	CURSED_BREATH: Spell.CURSED_BREATH,
 	DEVESTATION: Spell.DEVESTATION,
+	DRAIN_SPIRIT: Spell.DRAIN_SPIRIT,
 	FLARE: Spell.FLARE,
+	FULGAR: Spell.FULGAR,
 	GLACIES: Spell.GLACIES,
+	ICEBERG: Spell.ICEBERG,
 	IGNIS: Spell.IGNIS,
 	LIFE_THEFT: Spell.LIFE_THEFT,
 	LUX: Spell.LUX,
 	MIND_THEFT: Spell.MIND_THEFT,
+	OMEGA: Spell.OMEGA,
 	TERRA: Spell.TERRA,
 	THUNDERBOLT: Spell.THUNDERBOLT,
 	UMBRA: Spell.UMBRA,
@@ -88,17 +92,17 @@ class Mage {
 			npc.maxRoleSkills++;
 		}
 		if(level >= 30) {
-			Modifier.ADD_TWO_RESISTANCE.apply();
+			Modifier.IMMUNE_AFFINITY.apply();
 		}
 		if(level >= 40) {
-			npc.mig = 8;
+			npc.wlp = 12;
 			npc.maxRoleSkills++;
 		}
 		if(level >= 50) {
-			Modifier.IMMUNE_AFFINITY.apply();
+			Modifier.INCREASE_MAGIC.apply();
 		}
 		if(level >= 60) {
-			npc.wlp = 12;
+			npc.mig = 8;
 			npc.maxRoleSkills++;
 		}
 	}

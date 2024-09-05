@@ -106,6 +106,12 @@ const Spell = {
 			npc.exportSpells.push(new ExportSpell("Flare"));
 		}
 	},
+	FULGAR: {
+		name: "Fulgar",
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
+	},
 	GLACIES: {
 		name: "Glacias (Must be Lvl 30+)",
 		apply: function() {
@@ -123,6 +129,12 @@ const Spell = {
 		apply: function() {
 			npc.exportSpells.push(new ExportSpell(this.name));
 		}		
+	},
+	ICEBERG: {
+		name: "Iceberg",
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
 	},
 	IGNIS: {
 		name: "Ignis",
@@ -156,6 +168,12 @@ const Spell = {
 	},
 	MIRROR: {
 		name: "Mirror",
+		apply: function() {
+			npc.exportSpells.push(new ExportSpell(this.name));
+		}
+	},
+	OMEGA: {
+		name: "Omega",
 		apply: function() {
 			npc.exportSpells.push(new ExportSpell(this.name));
 		}

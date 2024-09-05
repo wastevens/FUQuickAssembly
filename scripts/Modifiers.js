@@ -313,6 +313,12 @@ const Modifier = {
 		apply: function() { 
 			npc.precision = true;
 		}
+	},
+	INCREASE_MAGIC: {
+		name: "+3 Magic Checks",
+		apply: function() { 
+			npc.magic = true;
+		}
 	},	
 	INCREASE_DEFENSE: {
 		name: "+2 to Defense and +1 to Magic Defense",

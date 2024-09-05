@@ -110,6 +110,10 @@ class NPC {
 		this.mp += (this.wlp ? (5 * this.wlp) : 0) + (this.level ? (1 * this.level) : 0) + this.bonusMp;
 	}
 	
+	exportName() {
+		return "Lvl " + this.level + " " + this.rank.display() + " " + this.species.constructor.name  + " " + this.role.constructor.name;
+	}
+	
 	fabulatorExport() {
 		const m = {}
 		const attributes = {};
@@ -145,7 +149,7 @@ class NPC {
 		m.attacks = this.attacks.map(a => a.fabulatorExport());
 		m.spells = this.exportSpells;
 		
-		m.name = "Lvl " + this.level + " " + this.rank.display() + " " + this.species.constructor.name  + " " + this.role.constructor.name;
+		m.name = this.exportName();
 		m.lvl = this.level;
 		m.rank = this.rank.fabulatorExport();
 		m.species = this.species.constructor.name;

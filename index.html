@@ -312,7 +312,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col"><h4>Export to Fabulator</h4></div>
+				<div class="col"><h4><a id="exportLink" href="#" onclick="downloadJSON()">Export to Fabulator</a></h4></div>
 			</div>
 			<div class="row">
 				<div class="col"><textarea id="export" cols="80" rows="10"></textarea></div>
@@ -365,6 +365,22 @@ function rotateAffinity(affinity) {
 			break;
 	}
 	updateAffinityDisplay();
+}
+
+function downloadJSON() {
+	if(npc.rank && npc.species && npc.role && npc.level) {
+		const val = JSON.stringify(npc.fabulatorExport(), null, 2)
+		const blob = new Blob([val], {type: 'application/json'})
+		const fileName = npc.exportName() + ".json";
+		const reader = new FileReader();
+		reader.onload = (e) => {
+			const link = document.createElement("a");
+			link.setAttribute("download", fileName);
+			link.href = e.target.result;
+			link.click();
+		};
+		reader.readAsDataURL(blob);
+	}
 }
 
 $(document).ready(function() {

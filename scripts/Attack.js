@@ -33,7 +33,7 @@ class Attack {
 		m.special = this.mods;
 		
 		m.itemType = "basic";
-		m.type = "nodmg";
+		m.type = "physical";
 		m.attr1 = this._attrName(this.attr1);
 		m.attr2 = this._attrName(this.attr2);
 		m.range = this.ranged ? "distance" : "melee";

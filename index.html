@@ -333,7 +333,26 @@ function clear() {
 }
 
 function update() {
+	const physical = npc.physical;
+	const air = npc.air;
+	const bolt = npc.bolt;
+	const dark = npc.dark;
+	const earth = npc.earth;
+	const fire = npc.fire;
+	const ice = npc.ice;
+	const light = npc.light;
+	const poison = npc.poison;
+	
 	npc = new NPC();
+	npc.physical = physical;
+	npc.air = air;
+	npc.bolt = bolt;
+	npc.dark = dark;
+	npc.earth = earth;
+	npc.fire = fire;
+	npc.ice = ice;
+	npc.light = light;
+	npc.poison = poison;
 	
 	npc.rank = Rank[$("#rank").val()].type;
 	npc.level = Level[$("#level").val()].type;
@@ -364,7 +383,7 @@ function rotateAffinity(affinity) {
 			npc[affinity] = ""; 
 			break;
 	}
-	updateAffinityDisplay();
+	update();
 }
 
 function downloadJSON() {

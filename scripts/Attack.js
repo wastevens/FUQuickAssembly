@@ -6,8 +6,7 @@ class Attack {
 		this.attr1 = "";
 		this.attr2 = "";
 		this.accuracy = 0;
-		this.baseDamage = 5;
-		this.damage = 0;
+		this.flatDamage = 0;
 		this.extraDamage = false;
 		this.mods = [];
 	}
@@ -30,6 +29,7 @@ class Attack {
 		const m = {}
 		m.name = this.name;
 		m.extraDamage = this.extraDamage;
+		m.flatDamage = this.flatDamage;
 		m.special = this.mods;
 		
 		m.itemType = "basic";
@@ -42,6 +42,9 @@ class Attack {
 	}
 	
 	display() {
+		const accuracyBonus = Math.floor(npc.level / 10);
+		const damageBonus = Math.floor(npc.level / 20) * 5;
+		
 		const attackRow = $("<div>").addClass("row").addClass("attack");
 		
 		const glyphDiv = $("<div>").addClass("col-1").addClass("p-0").addClass("text-center");
@@ -57,9 +60,10 @@ class Attack {
 			
 		const basicDiv = $("<div>").addClass("col-5");
 		const nameSpan = $("<span>").append(this.name);
-		const accuracy = (this.accuracy ? this.accuracy : 0) + (npc.precision ? 3 : 0);
+		const accuracy = (this.accuracy ? this.accuracy : 0) + accuracyBonus + (npc.precision ? 3 : 0);
 		const accuracySpan = $("<span>").append("<b>[" + this.attr1 + " + " + this.attr2 + "]" + (accuracy ? " + " + accuracy : ""));
-		const dmgSpan = $("<span>").append("<b>[HR + " + (this.damage + (this.extraDamage ? 5 : 0)) +"]</b> (Type) damage");
+		const damage = 5 + (this.extraDamage ? 5 : 0) + this.flatDamage + damageBonus;
+		const dmgSpan = $("<span>").append("<b>[HR + " + damage +"]</b> (Type) damage");
 		basicDiv.append(nameSpan).append(this._spaceSpan()).append(accuracySpan).append(this._spaceSpan()).append(dmgSpan);
 		
 		const modDiv = $("<div>").addClass("col");

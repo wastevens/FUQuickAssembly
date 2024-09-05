@@ -31,6 +31,13 @@ class Sentinel {
 	}
 	
 	apply() {
+		npc.dex = 8;
+		npc.ins = 8;
+		npc.mig = 8;
+		npc.wlp = 8;
+		npc.roleAffinityNotes = [];
+		npc.weakAffinityNotes.push("Add two Vulnerabilities");
+		
 		npc.def += 2;
 		npc.mdef += 1;
 	}
@@ -49,8 +56,6 @@ class Sentinel {
 	
 	levelUp(level) {
 		$(".attack").remove();
-		const accuracyBonus = Math.floor(level / 10);
-		const damageBonus = Math.floor(accuracyBonus / 2) * 5;
 		
 		const attack1 = new Attack();
 		attack1.isMelee = true;
@@ -58,8 +63,6 @@ class Sentinel {
 		attack1.name = "Normal Attack";
 		attack1.attr1 = "DEX";
 		attack1.attr2 = "MIG";
-		attack1.accuracy = accuracyBonus;
-		attack1.damage = 5 + damageBonus;
 		attack1.extraDamage = false;
 		attack1.mods.push("Hit target suffers (choose one: dazed, shaken, slow, weak).");
 		npc.attacks.push(attack1);
@@ -70,18 +73,9 @@ class Sentinel {
 		attack2.name = "Strong Attack";
 		attack2.attr1 = "DEX";
 		attack2.attr2 = "MIG";
-		attack2.accuracy = accuracyBonus;
-		attack2.damage = 5 + damageBonus;
 		attack2.extraDamage = true;
 		attack2.mods = [];
 		npc.attacks.push(attack2);
-		
-		npc.roleAffinityNotes = [];
-		npc.weakAffinityNotes.push("Add two Vulnerabilities");
-		npc.dex = 8;
-		npc.ins = 8;
-		npc.mig = 8;
-		npc.wlp = 8;
 		
 		npc.level = level;
 		

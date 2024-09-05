@@ -36,6 +36,13 @@ class Support {
 	}
 	
 	apply() {
+		npc.dex = 8;
+		npc.ins = 10;
+		npc.mig = 6;
+		npc.wlp = 8;
+		npc.roleAffinityNotes = [];
+		npc.weakAffinityNotes.push("Add one Vulnerability");
+		
 		npc.spellNote = "Magic Check is [INS + WLP]"
 		npc.def += 1;
 		npc.mdef += 2;
@@ -56,27 +63,14 @@ class Support {
 	
 	levelUp(level) {
 		$(".attack").remove();
-		const accuracyBonus = Math.floor(level / 10);
-		const damageBonus = Math.floor(accuracyBonus / 2) * 5;
-		
 		const attack1 = new Attack();
 		attack1.isMelee = true;
 		attack1.isRanged = true;
 		attack1.name = "Normal Attack";
 		attack1.attr1 = "INS";
 		attack1.attr2 = "WLP";
-		attack1.accuracy = accuracyBonus;
-		attack1.damage = 5 + damageBonus;
 		attack1.extraDamage = false;
 		npc.attacks.push(attack1);
-		
-		
-		npc.roleAffinityNotes = [];
-		npc.weakAffinityNotes.push("Add one Vulnerability");
-		npc.dex = 8;
-		npc.ins = 10;
-		npc.mig = 6;
-		npc.wlp = 8;
 		
 		npc.level = level;
 		

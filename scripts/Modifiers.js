@@ -25,6 +25,13 @@ const Modifier = {
 			npc.maxSpells += 2; 
 		}
 	},
+	ADD_HUNTER_SPELLS: {
+		name: "Learn two spells",
+		apply: function() { 
+			npc.spellNote = "Magic Check is [INS + WLP]"
+			npc.maxSpells += 2; 
+		}
+	},	
 	ADD_MAGE_SPELLS: {
 		name: "Learn two additional spells",
 		apply: function() { 
@@ -57,6 +64,21 @@ const Modifier = {
 		name: "Add two Resistances (not physical)",
 		apply: function() {
 			npc.strongAffinityNotes.push("Add two Resistances (not physical)");
+		}
+	},
+	ADD_STRONG_ATTACK_HUNTER: {
+		name: "Add Strong Attack",
+		apply: function() {
+			const attack = new Attack();
+			attack.isMelee = true;
+			attack.isRanged = true;
+			attack.name = "Strong Attack";
+			attack.attr1 = "DEX";
+			attack.attr2 = "INS";
+			attack.flatDamage = 5;
+			attack.extraDamage = true;
+			attack.mods.push("**Multi(2)**, and this NPC cannot perform an actions or free actions until the end of their next turn");
+			npc.attacks.push(attack);
 		}
 	},
 	ADD_STRONG_ATTACK_SABOTEUR: {
@@ -171,6 +193,12 @@ const Modifier = {
 	},
 	ELEMENT_SHIFT: {
 		name: "Element Shift (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
+		}
+	},
+	ELUSIVE: {
+		name: "Elusive (special rule)",
 		apply: function() {
 			npc.specials.push(new Mod(this.name, ""));
 		}
@@ -312,6 +340,12 @@ const Modifier = {
 			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
+	LIGHTNING_FAST: {
+		name: "Lightning Fast (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
+		}
+	},
 	MAGICAL_MASTERY: {
 		name: "Magical Mastery (special rule)",
 		apply: function() {
@@ -325,7 +359,7 @@ const Modifier = {
 		}
 	},	
 	NORMAL_ATTACK_BONUS_VS_CONDITION: {
-		name: "Normal Attack Mod: deals 5 extra damage against targets who are (condition)",
+		name: "Normal Attack Mod: Deal 5 extra damage against targets who meet (Condition)",
 		apply: function() { npc.attacks[0].mods.push("+5 damage vs (Condition)"); }
 	},
 	NORMAL_ATTACK_EFFECTIVE_VS_STATUS: {
@@ -465,6 +499,12 @@ const Modifier = {
 			npc.specials.push(new Mod(this.name, ""));
 		}
 	},
+	SPECIAL_RESISTANCE: {
+		name: "Special Resistance (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, ""));
+		}
+	},
 	STEADY_RECOVERY: {
 		name: "Steady Recovery (special rule)",
 		apply: function() {
@@ -493,6 +533,14 @@ const Modifier = {
 			npc.attacks[1].attr1 = "DEX";
 			npc.attacks[1].attr2 = "MIG";
 			npc.attacks[1].mods.push("Target suffers **(choose one: dazed, shaken, slow, or weak)**");
+		}
+	},
+	STRONG_ATTACK_TARGET_MDEF: {
+		name: "Strong Attack Mod: Targets Magic Defense",
+		apply: function() { 
+			if(npc.attacks.length > 1) {
+				npc.attacks[1].mods.push("Targets Magic Defense"); 
+			}
 		}
 	},
 	SYPHON_MIND: {

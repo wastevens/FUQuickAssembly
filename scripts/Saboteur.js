@@ -36,6 +36,13 @@ class Saboteur {
 	}
 	
 	apply() {
+		npc.dex = 10;
+		npc.ins = 8;
+		npc.mig = 6;
+		npc.wlp = 8;
+		npc.roleAffinityNotes = [];
+		npc.weakAffinityNotes.push("Add one Vulnerability");
+		
 		npc.def += 1;
 		npc.mdef += 2;
 	}
@@ -54,27 +61,15 @@ class Saboteur {
 	
 	levelUp(level) {
 		$(".attack").remove();
-		const accuracyBonus = Math.floor(level / 10);
-		const damageBonus = Math.floor(accuracyBonus / 2) * 5;
-		
 		const attack1 = new Attack();
 		attack1.isMelee = true;
 		attack1.isRanged = true;
 		attack1.name = "Normal Attack";
 		attack1.attr1 = "DEX";
 		attack1.attr2 = "INS";
-		attack1.accuracy = accuracyBonus;
-		attack1.damage = 5 + damageBonus;
 		attack1.extraDamage = false;
 		attack1.mods.push("Each hit target loses 10 MP OR each hit target suffers (Status). If (Status) is Poisoned or Enraged, add a Vulnerability.");
 		npc.attacks.push(attack1);
-		
-		npc.roleAffinityNotes = [];
-		npc.weakAffinityNotes.push("Add one Vulnerability");
-		npc.dex = 10;
-		npc.ins = 8;
-		npc.mig = 6;
-		npc.wlp = 8;
 		
 		npc.level = level;
 		

@@ -1,7 +1,5 @@
 const HumanoidSkills = {
 	NOOP_SKILL: Modifier.NOOP_SKILL,
-	INCREASE_DEFENSE: Modifier.INCREASE_DEFENSE,
-	INCREASE_MDEFENSE: Modifier.INCREASE_MDEFENSE,
 	CONTEXT_BONUS: Modifier.CONTEXT_BONUS,
 	ADD_TWO_RESISTANCE: Modifier.ADD_TWO_RESISTANCE,
 	FLYING: Modifier.FLYING,
@@ -13,6 +11,7 @@ class Humanoid {
 	}
 	
 	apply() {
+		npc.weakAffinityNotes.push("Vulnerability to one of <b>(Physical, Dark, Light, Poison)</b>");
 		npc.maxSpeciesSkills += 3;
 		npc.enabled = {
 			physical: true,

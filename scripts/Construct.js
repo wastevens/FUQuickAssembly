@@ -1,7 +1,6 @@
 const ConstructSkills = {
 	NOOP_SKILL: Modifier.NOOP_SKILL,
 	ADD_10_HP: Modifier.ADD_10_HP,
-	INCREASE_DEFENSE: Modifier.INCREASE_DEFENSE,
 	CONTEXT_BONUS: Modifier.CONTEXT_BONUS,
 	IMMUNITY_TWO_STATUS: Modifier.IMMUNITY_TWO_STATUS,
 	FLYING: Modifier.FLYING,
@@ -28,7 +27,6 @@ class Construct {
 			light: true,
 			poison: false
 		};
-		
 		
 		npc.statusNotes.push("Immunity to the <b>poisoned</b> status");
 		

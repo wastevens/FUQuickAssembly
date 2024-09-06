@@ -166,10 +166,10 @@ class NPC {
 	}
 	
 	magicAttr1() {
-		return "dexterity";
+		return npc.role.magicAttr1();
 	}
 	
 	magicAttr2() {
-		return "dexterity";
+		return npc.role.magicAttr2();
 	}
 }

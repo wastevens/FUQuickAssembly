@@ -101,4 +101,12 @@ class Sentinel {
 			npc.maxRoleSkills++;
 		}
 	}
+	
+	magicAttr1() {
+		return "insight";
+	}
+	
+	magicAttr2() {
+		return "will";
+	}
 }

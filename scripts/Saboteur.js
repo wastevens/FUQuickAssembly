@@ -98,4 +98,12 @@ class Saboteur {
 			npc.maxRoleSkills++;
 		}
 	}
+	
+	magicAttr1() {
+		return "insight";
+	}
+	
+	magicAttr2() {
+		return "will";
+	}
 }

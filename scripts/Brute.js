@@ -104,4 +104,12 @@ class Brute {
 			npc.maxRoleSkills++;
 		}
 	}
+	
+	magicAttr1() {
+		return "might";
+	}
+	
+	magicAttr2() {
+		return "will";
+	}
 }

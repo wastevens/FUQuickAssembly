@@ -145,7 +145,7 @@ class NPC {
 		m.extra = extra;
 		
 		m.actions = this.actions;
-		m.specials = this.specials;
+		m.special = this.specials;
 		m.attacks = this.attacks.map(a => a.fabulatorExport());
 		m.spells = this.exportSpells;
 		

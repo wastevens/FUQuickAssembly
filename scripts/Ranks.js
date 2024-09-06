@@ -73,6 +73,10 @@ const Rank = {
 		name: "Elite",
 		type: new Elite()
 	},
+	CHAMPION_1: {
+		name: "Champion (1)",
+		type: new Champion(1)
+	},	
 	CHAMPION_2: {
 		name: "Champion (2)",
 		type: new Champion(2)

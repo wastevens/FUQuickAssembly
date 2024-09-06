@@ -164,4 +164,12 @@ class NPC {
 		m.language = "en";
 		return m;
 	}
+	
+	magicAttr1() {
+		return "dexterity";
+	}
+	
+	magicAttr2() {
+		return "dexterity";
+	}
 }

@@ -143,7 +143,7 @@ const Spell = {
 	HEAL: {
 		name: "Heal",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Hallucination", "10", "Instantaneous", "3", "Up to three creatures", false, "physical", "You invigorate your companions, soothing their pain and healing their fatigue. Each target recovers 40 Hit Points. This amount increases to 50 Hit Points if you are **level 20 or higher**, or to 60 Hit Points if you are **level 40 or higher.**"));
+			npc.exportSpells.push(new ExportSpell("Heal", "10", "Instantaneous", "3", "Up to three creatures", false, "physical", "You invigorate your companions, soothing their pain and healing their fatigue. Each target recovers 40 Hit Points. This amount increases to 50 Hit Points if you are **level 20 or higher**, or to 60 Hit Points if you are **level 40 or higher.**"));
 		}		
 	},
 	ICEBERG: {
@@ -240,7 +240,7 @@ const Spell = {
 	TORPOR: {
 		name: "Torpor",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Umbra", "5", "Instantaneous", "3", "Up to three creatures", true, "physical", "You smother the soul energy coursing through the bodies of your foes, hindering their movements. Choose **slow or weak**: you inflict the chosen status effect on each target hit by this spell."));
+			npc.exportSpells.push(new ExportSpell("Torpor", "5", "Instantaneous", "3", "Up to three creatures", true, "physical", "You smother the soul energy coursing through the bodies of your foes, hindering their movements. Choose **slow or weak**: you inflict the chosen status effect on each target hit by this spell."));
 		}
 	},
 	UMBRA: {

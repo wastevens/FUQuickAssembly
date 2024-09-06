@@ -12,7 +12,9 @@
 	<script src="scripts/Spells.js"></script>
 	
 	<script src="scripts/Levels.js"></script>
+	
 	<script src="scripts/Ranks.js"></script>
+	<script src="scripts/BossSkill.js"></script>
 	
 	<script src="scripts/Beast.js"></script>
 	<script src="scripts/Construct.js"></script>
@@ -312,6 +314,20 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col">
+					<div id="bossSkills" class="container border">
+						<div class="row">
+							<div class="col-2">
+								<h4>Boss Skills</h4>
+							</div>
+							<div class="col">
+								<h4>(max <span id="maxBossSkills">0</span>)</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+			<div class="row">
 				<div class="col"><h4><a id="exportLink" href="#" onclick="downloadJSON()">Export to Fabulator</a></h4></div>
 			</div>
 			<div class="row">
@@ -328,6 +344,7 @@ function clear() {
 	$(".speciesSkill").remove();
 	$(".customization").remove();
 	$(".roleSkill").remove();
+	$(".bossSkill").remove();
 	$(".attack").remove();
 	$("#export").text("");
 }

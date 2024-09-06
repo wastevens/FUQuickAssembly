@@ -22,6 +22,7 @@ function updateDisplay() {
 	$("#maxCustomizations").text(npc.maxCustomizations);
 	$("#maxRoleSkills").text(npc.maxRoleSkills);
 	$("#maxSpells").text(npc.maxSpells);
+	$("#maxBossSkills").text(npc.maxBossSkills);
 	
 	$("#maxSpeciesSkills").text(npc.maxSpeciesSkills);
 	$("#speciesSkillNotes").text(npc.speciesSkillNote);
@@ -32,6 +33,7 @@ function updateDisplay() {
 		updateSelections(npc.role.customizations(), npc.customizations, npc.maxCustomizations, "customization", "customizations");
 		updateSelections(npc.role.skills(), npc.roleSkills, npc.maxRoleSkills, "roleSkill", "roleSkills");
 		updateSelections(npc.role.spells(), npc.spells, npc.maxSpells, "spell", "spells");
+		updateSelections(BossSkill, npc.bossSkills, npc.maxBossSkills, "bossSkill", "bossSkills");
 	}
 	
 	if(npc.species) {

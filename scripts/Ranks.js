@@ -9,6 +9,8 @@ class Soldier {
 	}
 	
 	apply() {
+		npc.maxBossSkills = 0;
+		npc.bossSkills = [];		
 		npc.maxCustomizations++;
 	}
 	
@@ -26,6 +28,8 @@ class Elite {
 	}
 	
 	apply() {
+		npc.maxBossSkills = 0;
+		npc.bossSkills = [];
 		npc.maxCustomizations++;
 		npc.maxRoleSkills++;
 		npc.hp *= 2;
@@ -46,6 +50,8 @@ class Champion {
 	}
 	
 	apply() {
+		npc.maxBossSkills += 1;
+		npc.bossSkills = [];
 		npc.maxRoleSkills += this.x;
 		npc.hp *= this.x;
 		npc.mp *= 2;

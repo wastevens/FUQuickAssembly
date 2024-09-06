@@ -59,6 +59,9 @@ class NPC {
 		this.maxRoleSkills = 0;
 		this.roleSkills = [];
 		
+		this.maxBossSkills = 0;
+		this.bossSkills = [];
+		
 		this.maxCustomizations = 0;
 		this.customizations = [];
 		
@@ -90,6 +93,10 @@ class NPC {
 			
 			$("select.spell").each(function(i, s) {
 				source._applyValue(s, source.role.spells(), source.spells);
+			});
+			
+			$("select.bossSkill").each(function(i, s) {
+				source._applyValue(s, BossSkill, source.bossSkills);
 			});
 			
 			this.deriveHPandMP();

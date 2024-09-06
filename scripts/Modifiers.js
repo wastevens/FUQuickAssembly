@@ -6,6 +6,10 @@ class Mod {
 }
 
 const Modifier = {
+	NOOP_BOSS_SKILL: {
+		name: "Select a Boss Skill",
+		apply: function() {}
+	},	
 	NOOP_CUSTOMIZATION: {
 		name: "Select a Customization",
 		apply: function() {}
@@ -157,6 +161,12 @@ const Modifier = {
 			npc.specials.push(new Mod("Contextual Bonus", "+3 bonus to Opposed checks in favorable contexts"));
 		}
 	},
+	CORROSIVE_STATUS: {
+		name: "Corrosive Status",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, "During their last turn of each round, this boss uses an action to deal a **minor** amount of **(choose one: air, bolt, dark, earth, fire, ice, light, physical, poison)** damage to every enemy present on the scene who is suffering from **(choose one: dazed, enraged, poisoned, shaken, slow, weak)**. If this boss is **level 30 or higher,** the amount of damage becomes **heavy** instead of **minor**."));
+		}
+	},	
 	CRUEL_HYPNOSIS: {
 		name: "Cruel Hypnosis (unique action) (Elites & Champions only)",
 		apply: function() {
@@ -169,6 +179,12 @@ const Modifier = {
 			npc.actions.push(new Mod(this.name, 'This NPC may use an action to have all enemies they are currently **enveloping** lose 20 Hit Points, or 30 Hit Points if this NPC is **level 30 or higher**. If you choose this Skill, **strong attack** gains "Creatures hit by this attack are **enveloped** until this NPC uses **strong attack** again, or until this NPCs suffers damage of a type they are Vulnerable to.'));
 		}
 	},
+	CRUSHING_ADVANTAGE: {
+		name: "Crushing Advantage",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, "When you choose this Skill, pick a **field** in which this boss is a true expert (such as courtly intrigue, street chases, vigilance and surveillance, technological tinkering, or magical experimentation). During their last turn of each round, this boss spends one action to automatically fill or erase **1 section** of a Clock of their choice related to the chosen **field**; if they wish so, they may also spend 1 Ultima Point to fill or erase an additional section of that Clock."));
+		}
+	},	
 	DARK_IMMUNITY_TO_ABSORBTION: {
 		name: "Replace Dark Immunity with Absorption",
 		apply: function() { 
@@ -182,6 +198,12 @@ const Modifier = {
 			npc.specials.push(new Mod(this.name, "When this NPC is reduced to 0 Hit Points for the first time during a scene, instead they are reduced to exactly 1 Hit Point."));
 		}
 	},
+	ELEMENTAL_CRISIS: {
+		name: "Elemental Crisis",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, "When this boss enters **Crisis** for the first time during a conflict, their damage Affinities and/or the type of damage dealt by their attacks, spells and Skills change until the end of the scene. Make sure the boss still has **one or more Vulnerabilities** that the Player Characters can exploit after the transformation."));
+		}
+	},	
 	ELEMENT_DRAIN: {
 		name: "Element Drain (special rule)",
 		apply: function() {
@@ -192,6 +214,12 @@ const Modifier = {
 		name: "Element Shift (special rule)",
 		apply: function() {
 			npc.specials.push(new Mod(this.name, "When this NPC casts a spell that deals **air, bolt, dark, earth, fire, ice, or light** damage, they gain **Absorption** to that damage type and **Vulnerability** to a different damage type that is intuitively effective against it (respectively, we suggest: **bolt, earth, light, air, ice, fire , or dark**). These Affinities **replace** any of this NPC's previously existing Affinities to these damage types, and last until this NPC triggers this special rule again."));
+		}
+	},
+	ELUSIVE: {
+		name: "Elusive (special rule)",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, " As long as this NPC is suffering from **no status effects**, all sources of damage deal no damage to them instead."));
 		}
 	},
 	EMERGENCY_CAMO: {
@@ -435,6 +463,12 @@ const Modifier = {
 			npc.specials.push(new Mod(this.name, "When this NPC performs an Opposed Check against a creature who is suffering from **shaken and/or weak**, that Check triggers a **critical success** if both dice show the same number (and the Result is not a **fumble**)."));
 		}
 	},
+	PART_REGENERATION: {
+		name: "Part Regeneration",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, "When this boss enters **Crisis** for the first time during a conflict, this boss and all of their allies present on the scene recover from all status effects; then, this boss summons **soldiers** until their side has returned to the same composition it had at the start of the conflict scene."));
+		}
+	},	
 	PARTING_GIFT: {
 		name: "Parting Gift (special rule) (Soldiers & Elites only)",
 		apply: function() {
@@ -556,6 +590,12 @@ const Modifier = {
 			npc.actions.push(new Mod(this.name, "When this NPC performs the **Guard** action, they **lock onto** an enemy they can see, chosen at random. When this NPC performs **normal attack** while **locked onto** an enemy they are able to target, they **must** target that enemy. If they do, the attack deals 10 extra damage and the **target lock** ends (even if the attack missed)."));
 		}
 	},
+	TEMPORARY_DEFENSES: {
+		name: "Temporary Defenses",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, "This boss always treats their **(choose one: Defense, Magic Defense)** score as being equal to **【12 + (this boss's level, divided by 20)】**. When this boss enters **Crisis** for the first time during a scene, they lose this benefit and their **normal attack** gains **multi (2)**; if **normal attack** already had **multi (2)**, increase it to **multi (3)** instead."));
+		}
+	},	
 	THREATEN: {
 		name: "Threaten (Special Rule)",
 		apply: function() {
@@ -586,6 +626,12 @@ const Modifier = {
 			npc.specials.push(new Mod(this.name, "Choose **one Vulnerability** of an **elite** or **champion** ally: as long as this NPC is present on the scene, the chosen ally treats it as a **Resistance** instead."));
 		}
 	},
+	ZOMBIFICATION: {
+		name: "Zombification",
+		apply: function() {
+			npc.specials.push(new Mod(this.name, "When a creature other than the boss recovers Hit Points, if that creature is suffering from **(choose one: weak, poisoned)**, they lose half as many Hit Points instead. Use this Skill only if the Player Characters can efficiently remove status effects."));
+		}
+	},	
 	//------------------------
 	BREATH_SPELL: {
 		name: "Learn the Breath spell and add +10 MP",

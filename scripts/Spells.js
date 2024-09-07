@@ -53,7 +53,7 @@ const Spell = {
 	BREATH: {
 		name: "Breath",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Breath", "5", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **【HR + 10】 (choose type)** damage."));
+			npc.exportSpells.push(new ExportSpell("Breath", "5", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **[HR + 10] (choose type)** damage."));
 		}
 	},
 	CLEANSE: {
@@ -77,7 +77,7 @@ const Spell = {
 	CURSED_BREATH: {
 		name: "Cursed Breath",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Cursed Breath", "10", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **【HR + 15】 (choose type)** damage and suffers **(choose one: dazed, shaken, slow, weak).**"));
+			npc.exportSpells.push(new ExportSpell("Cursed Breath", "10", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **[HR + 15] (choose type)** damage and suffers **(choose one: dazed, shaken, slow, weak).**"));
 		}
 	},
 	DEVESTATION: {
@@ -101,7 +101,7 @@ const Spell = {
 	DRAIN_SPIRIT: {
 		name: "Drain Spirit",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Drain Spirit", "5", "Instantaneous", "1", "One creature", true, "physical", "You consume a creature's psyche. The target loses **【HR + 15】** Mind Points. Then, you recover an amount of Mind Points equal to half the Mind Points loss they suffered (if the loss was reduced to 0 in some way, you recover none)."));
+			npc.exportSpells.push(new ExportSpell("Drain Spirit", "5", "Instantaneous", "1", "One creature", true, "physical", "You consume a creature's psyche. The target loses **[HR + 15]** Mind Points. Then, you recover an amount of Mind Points equal to half the Mind Points loss they suffered (if the loss was reduced to 0 in some way, you recover none)."));
 		}
 	},
 	ELEMENTAL_SHROUD: {
@@ -119,19 +119,19 @@ const Spell = {
 	FLARE: {
 		name: "Flare (Must be Lvl 30+)",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Flare", "20", "Instantaneous", "1", "One creature", true, "fire", "You channel a single ray of fire towards your foe, its temperature so high that it will pierce through most defenses. The target suffers **【HR + 25】 fire** damage. Damage dealt by this spell ignores Resistances."));
+			npc.exportSpells.push(new ExportSpell("Flare", "20", "Instantaneous", "1", "One creature", true, "fire", "You channel a single ray of fire towards your foe, its temperature so high that it will pierce through most defenses. The target suffers **[HR + 25] fire** damage. Damage dealt by this spell ignores Resistances."));
 		}
 	},
 	FULGAR: {
 		name: "Fulgar",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Fulgar", "10", "Instantaneous", "3", "Up to three creatures", true, "bolt", "You weave electricity into a wave of crackling bolts. Each target hit by this spell suffers **【HR + 15】 bolt** damage. **Opportunity:** Each target hit by this spell suffers **dazed**."));
+			npc.exportSpells.push(new ExportSpell("Fulgar", "10", "Instantaneous", "3", "Up to three creatures", true, "bolt", "You weave electricity into a wave of crackling bolts. Each target hit by this spell suffers **[HR + 15] bolt** damage. **Opportunity:** Each target hit by this spell suffers **dazed**."));
 		}
 	},
 	GLACIES: {
 		name: "Glacias (Must be Lvl 30+)",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Glacias", "10", "Instantaneous", "3", "Up to three creatures", true, "ice", "You coat your foes under a thick layer of frost. Each target hit by this spell suffers **【HR + 15】 ice** damage. **Opportunity:** Each target hit by this spell suffers **slow**."));
+			npc.exportSpells.push(new ExportSpell("Glacias", "10", "Instantaneous", "3", "Up to three creatures", true, "ice", "You coat your foes under a thick layer of frost. Each target hit by this spell suffers **[HR + 15] ice** damage. **Opportunity:** Each target hit by this spell suffers **slow**."));
 		}
 	},
 	HALLUCINATION: {
@@ -149,13 +149,13 @@ const Spell = {
 	ICEBERG: {
 		name: "Iceberg (Must be Lvl 30+)",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Iceberg", "20", "Instantaneous", "1", "One creature", true, "ice", "A pillar of ice magic envelops your foe, suddenly dropping their body temperature to a critical level. The target suffers **【HR + 25】 ice** damage. Damage dealt by this spell ignores Resistances."));
+			npc.exportSpells.push(new ExportSpell("Iceberg", "20", "Instantaneous", "1", "One creature", true, "ice", "A pillar of ice magic envelops your foe, suddenly dropping their body temperature to a critical level. The target suffers **[HR + 25] ice** damage. Damage dealt by this spell ignores Resistances."));
 		}
 	},
 	IGNIS: {
 		name: "Ignis",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Ignis", "10", "Instantaneous", "3", "Up to three creatures", true, "fire", "You unleash a searing barrage against your foes, conjuring flames out of thin air. Each target hit by this spell suffers **【HR + 15】 fire** damage. **Opportunity:** Each target hit by this spell suffers **shaken**."));
+			npc.exportSpells.push(new ExportSpell("Ignis", "10", "Instantaneous", "3", "Up to three creatures", true, "fire", "You unleash a searing barrage against your foes, conjuring flames out of thin air. Each target hit by this spell suffers **[HR + 15] fire** damage. **Opportunity:** Each target hit by this spell suffers **shaken**."));
 		}
 	},
 	LICK_WOUNDS: {
@@ -167,19 +167,19 @@ const Spell = {
 	LIFE_THEFT: {
 		name: "Life Theft",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Life Theft", "10", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **【HR + 15】 (choose type)** damage. Then, you recover an amount of Hit Points equal to half the Hit Point loss they suffered."));
+			npc.exportSpells.push(new ExportSpell("Life Theft", "10", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **[HR + 15] (choose type)** damage. Then, you recover an amount of Hit Points equal to half the Hit Point loss they suffered."));
 		}
 	},
 	LUX: {
 		name: "Lux",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Lux", "10", "Instantaneous", "3", "Up to three creatures", true, "light", "You focus your inner energy into a barrage of blinding soul rays. Each target hit by this spell suffers **【HR + 15】 light** damage. **Opportunity:** Each target hit by this spell suffers **dazed**."));
+			npc.exportSpells.push(new ExportSpell("Lux", "10", "Instantaneous", "3", "Up to three creatures", true, "light", "You focus your inner energy into a barrage of blinding soul rays. Each target hit by this spell suffers **[HR + 15] light** damage. **Opportunity:** Each target hit by this spell suffers **dazed**."));
 		}
 	},
 	MIND_THEFT: {
 		name: "Mind Theft",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Mind Theft", "10", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **【HR + 15】 (choose type)** damage. Then, you recover an amount of Mind Points equal to half the Hit Point loss they suffered."));
+			npc.exportSpells.push(new ExportSpell("Mind Theft", "10", "Instantaneous", "1", "One creature", true, "physical", "The target suffers **[HR + 15] (choose type)** damage. Then, you recover an amount of Mind Points equal to half the Hit Point loss they suffered."));
 		}
 	},
 	MIRROR: {
@@ -191,7 +191,7 @@ const Spell = {
 	OMEGA: {
 		name: "Omega (Must be Lvl 30+)",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Omega", "20", "Instantaneous", "1", "One creature", true, "physical", "You invoke doom on your foe, turning strength into frailty. The target loses an amount of Hit Points equal to **【20 + half the target's level】**."));
+			npc.exportSpells.push(new ExportSpell("Omega", "20", "Instantaneous", "1", "One creature", true, "physical", "You invoke doom on your foe, turning strength into frailty. The target loses an amount of Hit Points equal to **[20 + half the target's level]**."));
 		}
 	},	
 	POISON: {
@@ -228,13 +228,13 @@ const Spell = {
 	TERRA: {
 		name: "Terra",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Terra", "10", "Instantaneous", "3", "Up to three creatures", true, "earth", "Spires of jagged rock erupt from the ground beneath your foes, closing around them. Each target hit by this spell suffers **【HR + 15】 earth** damage.  This spell cannot target creatures who are flying, floating, falling, or otherwise in mid-air. **Opportunity:** Each target hit by this spell performs one fewer action on their next turn (to a minimum of 0 actions)."));
+			npc.exportSpells.push(new ExportSpell("Terra", "10", "Instantaneous", "3", "Up to three creatures", true, "earth", "Spires of jagged rock erupt from the ground beneath your foes, closing around them. Each target hit by this spell suffers **[HR + 15] earth** damage.  This spell cannot target creatures who are flying, floating, falling, or otherwise in mid-air. **Opportunity:** Each target hit by this spell performs one fewer action on their next turn (to a minimum of 0 actions)."));
 		}
 	},
 	THUNDERBOLT: {
 		name: "Thunderbolt (Must be Lvl 30+)",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Thunderbolt", "20", "Instantaneous", "1", "One creature", true, "bolt", "You send lightning striking at your foe. The target suffers **【HR + 25】 bolt** damage. Damage dealt by this spell ignores Resistances."));
+			npc.exportSpells.push(new ExportSpell("Thunderbolt", "20", "Instantaneous", "1", "One creature", true, "bolt", "You send lightning striking at your foe. The target suffers **[HR + 25] bolt** damage. Damage dealt by this spell ignores Resistances."));
 		}
 	},
 	TORPOR: {
@@ -246,13 +246,13 @@ const Spell = {
 	UMBRA: {
 		name: "Umbra",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Umbra", "10", "Instantaneous", "3", "Up to three creatures", true, "dark", "A storm of dark energy turns matter into ash. Each target hit by this spell suffers **【HR + 15】 dark** damage. **Opportunity:** Each target hit by this spell suffers **weak**."));
+			npc.exportSpells.push(new ExportSpell("Umbra", "10", "Instantaneous", "3", "Up to three creatures", true, "dark", "A storm of dark energy turns matter into ash. Each target hit by this spell suffers **[HR + 15] dark** damage. **Opportunity:** Each target hit by this spell suffers **weak**."));
 		}
 	},
 	VENTUS: {
 		name: "Ventus",
 		apply: function() {
-			npc.exportSpells.push(new ExportSpell("Ventus", "10", "Instantaneous", "3", "Up to three creatures", true, "wind", "You summon the power of winds against your enemy Each target hit by this spell suffers **【HR + 15】 wind** damage.  **Opportunity:** Each flying  target hit by this spell is forced to land immediately."));
+			npc.exportSpells.push(new ExportSpell("Ventus", "10", "Instantaneous", "3", "Up to three creatures", true, "wind", "You summon the power of winds against your enemy Each target hit by this spell suffers **[HR + 15] wind** damage.  **Opportunity:** Each flying  target hit by this spell is forced to land immediately."));
 		}
 	},
 	WAR_CRY: {
